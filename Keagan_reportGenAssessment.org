@@ -1,0 +1,157 @@
+#+OPTIONS: ':nil *:t -:t ::t <:t H:3 \n:nil ^:t arch:headline
+#+OPTIONS: author:t broken-links:nil c:nil creator:nil
+#+OPTIONS: d:(not "LOGBOOK") date:t e:t email:nil f:t inline:t num:t
+#+OPTIONS: p:nil pri:nil prop:nil stat:t tags:t tasks:t tex:t
+#+OPTIONS: timestamp:t title:t toc:t todo:t |:t
+#+TITLE: Keagan_reportGenAssessment
+#+DATE: <2020-11-04 Wed>
+#+AUTHOR: Keagan McMahon
+#+EMAIL: kl2mcmah@uwaterloo.ca
+#+LANGUAGE: en
+#+SELECT_TAGS: export
+#+EXCLUDE_TAGS: noexport
+#+CREATOR: Emacs 26.3 (Org mode 9.1.9)
+#+LATEX_CLASS: article
+#+LATEX_CLASS_OPTIONS:
+#+LATEX_HEADER: \bibliographystyle{plain}
+#+LATEX_HEADER_EXTRA:
+#+DESCRIPTION:
+#+KEYWORDS:
+#+SUBTITLE:
+#+LATEX_COMPILER: pdflatex
+#+DATE: \today
+
+
+This is to test your installation of the files and programs needed to make a simple report. To compile to pdf use ~C-c C-e l p~.
+
+* Introduction
+
+Insert introduction text here...
+
+
+* Methods
+
+Insert some method text here
+
+This loads an R library
+#+Begin_src R :session *testR*
+library(random)
+#+End_src
+
+#+RESULTS:
+| random    |
+| stats     |
+| graphics  |
+| grDevices |
+| utils     |
+| datasets  |
+| methods   |
+| base      |
+
+
+* Results
+
+Insert some results text here and other content (i.e. code, etc)
+
+Now we will see if we can some source code and a simple plot for our export.
+
+#+begin_src R :session *testR* :exports both
+x = 1:10
+y = rnorm(10)
+print(mean(y))
+#+end_src
+
+#+RESULTS:
+: -0.432217789427753
+
+Here is some more R source code!
+#+begin_src R :session *testR* :exports both
+{ a=2
+  b=6
+  multiply <- function(a,b)
+  return(a * b)
+  print(paste(a, "multiplied by", b, "is", (print(multiply(a,b)))))
+}
+
+{ for(i in seq(1,10))
+if(i%%2==0){ 
+print(i) }
+}
+#+end_src
+
+#+RESULTS:
+
+
+Now lets try some Python source code from my loop assignment...
+
+#+begin_src python :session *Python* :exports code
+letters = ['t', 'r', 'i', 'b', 'q', 'v', 'h', 'p']
+position = ['1st', '2nd', '3rd', '4th', '5th', '6th', '7th', '8th']
+
+for x in letters:
+  print(x)
+
+for i in sorted(letters):
+  print(i)
+
+for x in enumerate(zip(letters, position)):
+  print("The {0} letter in list 1 is {0}".format(x))
+
+#+end_src
+
+#+RESULTS:
+
+
+Here is a graph of our results for you to see: 
+
+#+begin_src R :session *testR* :exports both :results graphics :file "simplePlot.png"
+plot(x,y,type = 'b')
+#+end_src
+
+#+RESULTS:
+[[file:simplePlot.png]]
+
+
+Here is some code that produces a table of data for us:
+#+BEGIN_SRC R :session *table* :colnames yes :exports both
+d <- data.frame(foo=c('a','b','n'), bar=c(1.0/3.0,22,32))
+
+d
+
+#+END_SRC
+
+#+RESULTS:
+| foo |               bar |
+|-----+-------------------|
+| a   | 0.333333333333333 |
+| b   |                22 |
+| n   |                32 |
+
+
+
+Here is an example of an inline piece of code, it will generate 20 random numbers:
+#+BEGIN_SRC R :session *testR* :exports code :results none
+
+xinline = rnorm(20)
+
+#+END_SRC
+
+We can use that code in this way:
+
+The mean of src_R[:session *testR* :exports results :results raw]{length(xinline)} mean 0 normally distributed numbers is src_R[:session *testR* :exports results :results raw]{mean(xinline)}.
+
+
+* Conclusions
+
+Put some type of conlusion content here....
+
+
+
+* References
+
+Insert some references here, such as...
+
+This article \cite{brittAttention}.
+
+#+latex: \bibliography{Keagan_testbib.bib}
+
