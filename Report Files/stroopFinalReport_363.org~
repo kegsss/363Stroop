@@ -1,0 +1,307 @@
+#+OPTIONS: ':nil *:t -:t ::t <:t H:3 \n:nil ^:t arch:headline
+#+OPTIONS: author:t broken-links:nil c:nil creator:nil
+#+OPTIONS: d:(not "LOGBOOK") date:t e:t email:nil f:t inline:t num:t
+#+OPTIONS: p:nil pri:nil prop:nil stat:t tags:t tasks:t tex:t
+#+OPTIONS: timestamp:t title:t toc:t todo:t |:t
+#+TITLE: PSYCH 363 - Stroop Effect: Congruency and Response Time
+#+DATE: <2020-12-14 Mon>
+#+AUTHOR: Keagan McMahon, Brigitta Munds, @@latex:\\@@ Benjamin Brown, & Christina Rachmadita
+#+EMAIL: kl2mcmah@uwaterloo.ca
+#+LANGUAGE: en
+#+SELECT_TAGS: export
+#+EXCLUDE_TAGS: noexport
+#+CREATOR: Emacs 26.3 (Org mode 9.1.9)
+#+LATEX_CLASS: article
+#+LATEX_CLASS_OPTIONS:
+#+LATEX_HEADER: \bibliographystyle{plain}
+#+LATEX_HEADER_EXTRA:
+#+DESCRIPTION:
+#+KEYWORDS:
+#+SUBTITLE:
+#+LATEX_COMPILER: pdflatex
+#+DATE: December 14th, 2020
+
+
+This is to test your installation of the files and programs needed to make a simple report. To compile to pdf use ~C-c C-e l p~.
+
+* Introduction
+
+Insert introduction text here...
+
+
+* Methods
+
+Insert some method text here
+
+This loads an R library
+#+Begin_src R :session *testR*
+library(random)
+#+End_src
+
+#+RESULTS:
+| random    |
+| stats     |
+| graphics  |
+| grDevices |
+| utils     |
+| datasets  |
+| methods   |
+| base      |
+
+
+* Results
+
+Insert some results text here and other content (i.e. code, etc)
+
+Now we will see if we can some source code and a simple plot for our export.
+
+#+begin_src R :session *testR* :exports both
+x = 1:10
+y = rnorm(10)
+print(mean(y))
+#+end_src
+
+#+RESULTS:
+: -0.432217789427753
+
+Here is some more R source code!
+#+begin_src R :session *testR* :exports both
+{ a=2
+  b=6
+  multiply <- function(a,b)
+  return(a * b)
+  print(paste(a, "multiplied by", b, "is", (print(multiply(a,b)))))
+}
+
+{ for(i in seq(1,10))
+if(i%%2==0){ 
+print(i) }
+}
+#+end_src
+
+#+RESULTS:
+
+
+Now lets try some Python source code from my loop assignment...
+
+#+begin_src python :session *Python* :exports code
+letters = ['t', 'r', 'i', 'b', 'q', 'v', 'h', 'p']
+position = ['1st', '2nd', '3rd', '4th', '5th', '6th', '7th', '8th']
+
+for x in letters:
+  print(x)
+
+for i in sorted(letters):
+  print(i)
+
+for x in enumerate(zip(letters, position)):
+  print("The {0} letter in list 1 is {0}".format(x))
+
+#+end_src
+
+#+RESULTS:
+
+
+Here is a graph of our results for you to see: 
+
+#+begin_src R :session *testR* :exports both :results graphics :file "simplePlot.png"
+plot(x,y,type = 'b')
+#+end_src
+
+#+RESULTS:
+[[file:simplePlot.png]]
+
+
+Here is some code that produces a table of data for us:
+#+BEGIN_SRC R :session *table* :colnames yes :exports both
+d <- data.frame(foo=c('a','b','n'), bar=c(1.0/3.0,22,32))
+
+d
+
+#+END_SRC
+
+#+RESULTS:
+| foo |               bar |
+|-----+-------------------|
+| a   | 0.333333333333333 |
+| b   |                22 |
+| n   |                32 |
+
+
+
+Here is an example of an inline piece of code, it will generate 20 random numbers:
+#+BEGIN_SRC R :session *testR* :exports code :results none
+
+xinline = rnorm(20)
+
+#+END_SRC
+
+We can use that code in this way:
+
+The mean of src_R[:session *testR* :exports results :results raw]{length(xinline)} mean 0 normally distributed numbers is src_R[:session *testR* :exports results :results raw]{mean(xinline)}.
+
+
+* Conclusions
+
+Put some type of conlusion content here....
+
+
+
+* References
+
+Insert some references here, such as...
+
+This article \cite{britt}
+
+#+latex: \bibliography{stroopBib.bib}
+
+* Testing Plots here.....
+#+BEGIN_SRC R :session *363 Stroop* :exports both :results graphics :file "barplot_stroop.png"
+library(ggplot2)
+
+data <- read.csv("/home/xubuntu/Documents/363Stroop/363Stroop_Data_Dec_4.csv")
+
+incongruent <- data[which(data$Congruent == 0),]$Time
+congruent <- data[which(data$Congruent == 1),]$Time
+df <- data.frame(cond = c("Incongruent", "Congruent"), rt = c(mean(incongruent), mean(congruent)))
+
+p <- ggplot(df, aes(x = cond, y = rt, fill = cond)) + geom_bar(stat = "identity", width = 0.5) + labs(title = "Condition on Reaction Time", x = "Condition", y = "Reaction Time (s)") + theme(legend.position = "right") + theme_minimal()
+p
+#+END_SRC
+
+#+RESULTS:
+[[file:barplot_stroop.png]]
+
+
+* Python Plots...
+** Data
+#+BEGIN_SRC python :session *363 Stroop* :exports both
+import matplotlib.pyplot as plt
+import pandas as pd
+import numpy as np
+import seaborn as sns
+from ggplot import *
+
+filename = "363Stroop_Data_Dec_4.csv"
+data = pd.read_csv(filename)
+congruent = data[data["Congruent"].isin([1])]
+incongruent = data[data["Congruent"].isin([0])]
+
+Lcongruent = []
+counter = 1
+while len(Lcongruent) < 20:
+  T = data[data["Trial"].isin([counter])][data["Congruent"].isin([1])]["Time"]
+  L = []
+  for i in T:
+    L.append(i)
+  Lcongruent.append(L)
+  counter += 1
+
+Lincongruent = []
+counter = 1
+while len(Lincongruent) < 20:
+  T = data[data["Trial"].isin([counter])][data["Congruent"].isin([0])]["Time"]
+  L = []
+  for i in T:
+    L.append(i)
+  Lincongruent.append(L)
+  counter += 1
+
+congruent_mean = list(map(lambda x: np.mean(Lcongruent[x]), range(len(Lcongruent))))
+
+incongruent_mean = list(map(lambda x: np.mean(Lincongruent[x]), range(len(Lincongruent))))
+
+d = {"Congruent": congruent_mean, "Incongruent": incongruent_mean}
+df = pd.DataFrame(d)
+#+END_SRC
+
+#+RESULTS:
+
+** Bar Plot
+#+BEGIN_SRC python :session *363 Stroop* :exports both :results file
+overall = {"Congruent": np.mean(congruent["Time"]), "Incongruent": np.mean(incongruent["Time"])}
+
+fig, ax = plt.subplots()
+x = list(overall.keys())
+y = list(overall.values())
+plt.bar(x, y, width = 0.5, color = "c")
+plt.title("Condition on Reaction Time")
+plt.xlabel("Condition")
+plt.ylabel("Reaction Time (s)")
+plt.savefig("barplot_stroop_py.png")
+"barplot_stroop_py.png"
+#+END_SRC
+
+#+RESULTS:
+[[file:barplot_stroop_py.png]]
+
+** Reaction Time for Each Condition
+*** Congruent Condition
+#+BEGIN_SRC python :session *363 Stroop* :exports both :results file
+plt.figure()
+sns.distplot(df["Congruent"])
+plt.title("Response Time for Congruent Words")
+plt.xlabel("Reaction Time (s)")
+plt.ylabel("Frequency")
+plt.savefig("RT_congruent_py.png")
+"RT_congruent_py.png"
+#+END_SRC
+
+#+RESULTS:
+[[file:RT_congruent_py.png]]
+
+*** Incongruent Condition
+#+BEGIN_SRC python :session *363 Stroop* :exports both :results file
+plt.figure()
+sns.distplot(df["Incongruent"])
+plt.title("Response Time for Incongruent Words")
+plt.xlabel("Reaction Time (s)")
+plt.ylabel("Frequency")
+plt.savefig("RT_incongruent_py.png")
+"RT_incongruent_py.png"
+#+END_SRC
+
+#+RESULTS:
+[[file:RT_incongruent_py.png]]
+
+*** Both Conditions
+#+BEGIN_SRC python :session *363 Stroop* :exports both :results file
+plt.figure()
+sns.distplot(df["Congruent"], label = "Congruent")
+sns.distplot(df["Incongruent"], label = "Incongruent")
+plt.title("Response Time for Congruent vs. Incongruent Words")
+plt.xlabel("Reaction Time (s)")
+plt.ylabel("Frequency")
+plt.legend()
+plt.savefig("RT_congruent_v_incongruent_py.png")
+"RT_congruent_v_incongruent_py.png"
+#+END_SRC
+
+#+RESULTS:
+[[file:RT_congruent_v_incongruent_py.png]]
+
+** Density Plot
+#+BEGIN_SRC python :session *363 Stroop* :exports both :results file
+df["Interference"] = df["Incongruent"] - df["Congruent"]
+long_df = pd.melt(df, id_vars = "Interference", value_vars = ["Congruent", "Incongruent"], var_name = "Condition", value_name = "Response Time (s)")
+
+time_density = ggplot(long_df, aes(x = "Response Time (s)", color = "Condition")) + ggtitle("Density Plots of Response Times") + xlab("Response Time (s)") + ylab ("Number of Observers") + geom_density()
+time_density.save("time_density_stroop_py.png")
+"time_density_stroop_py.png"
+#+END_SRC
+
+#+RESULTS:
+[[file:time_density_stroop_py.png]]
+
+** Interference Histogram
+#+BEGIN_SRC python :session *363 Stroop* :exports both :results file
+new_longdf = long_df[long_df.Condition == "Congruent"]
+interference_hist = ggplot(new_longdf, aes(x = "Interference")) + ggtitle("Histogram of Interference") + xlab("Increase in Response Time (s)") + ylab("Number of Observers") + geom_histogram(binwidth = 0.05, color = "white", fill = "c")
+interference_hist.save("interference_hist_stroop_py.png")
+"interference_hist_stroop_py.png"
+#+END_SRC
+
+#+RESULTS:
+[[file:interference_hist_stroop_py.png]]
+
+
