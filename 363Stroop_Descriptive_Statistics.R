@@ -8,7 +8,7 @@ dtben <- read_csv("363Stroop_Data_Dec_4.csv")
 
 
 ## An example of how our data is structured
-tibble(dtben)
+head(dtben, 10)
 
 ## A quick summary of the meaningful means and quartiles of each variable
 summary(dtben)
