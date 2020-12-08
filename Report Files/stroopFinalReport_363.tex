@@ -1,4 +1,4 @@
-% Created 2020-12-05 Sat 20:57
+% Created 2020-12-07 Mon 19:43
 % Intended LaTeX compiler: pdflatex
 \documentclass{article}
 \usepackage[utf8]{inputenc}
@@ -33,13 +33,13 @@
 This is to test your installation of the files and programs needed to make a simple report. To compile to pdf use \texttt{C-c C-e l p}.
 
 \section{Introduction}
-\label{sec:org204155e}
+\label{sec:orgbdc3519}
 
 Insert introduction text here\ldots{}
 
 
 \section{Methods}
-\label{sec:org10a27a8}
+\label{sec:org22ebc97}
 
 Insert some method text here
 
@@ -50,7 +50,7 @@ library(random)
 
 
 \section{Results}
-\label{sec:org17b9d7d}
+\label{sec:org49a52bf}
 
 Insert some results text here and other content (i.e. code, etc)
 
@@ -63,7 +63,7 @@ print(mean(y))
 \end{verbatim}
 
 \begin{verbatim}
-0.0938086862415748
+0.304133655574248
 \end{verbatim}
 
 Here is some more R source code!
@@ -139,18 +139,18 @@ xinline = rnorm(20)
 
 We can use that code in this way:
 
-The mean of 20 mean 0 normally distributed numbers is -0.3251309856653.
+The mean of 20 mean 0 normally distributed numbers is 0.2677680022121.
 
 
 \section{Conclusions}
-\label{sec:orgebe2160}
+\label{sec:orgf5fac26}
 
 Put some type of conlusion content here\ldots{}.
 
 
 
 \section{References}
-\label{sec:org8633c68}
+\label{sec:orgcdf8542}
 
 Insert some references here, such as\ldots{}
 
@@ -160,7 +160,7 @@ This article \cite{britt}
 
 
 \section{Testing Plots here\ldots{}..}
-\label{sec:orgdd5fd9f}
+\label{sec:org2382b36}
 \begin{verbatim}
 library(ggplot2)
 
@@ -171,10 +171,137 @@ congruent <- data[which(data$Congruent == 1),]$Time
 df <- data.frame(cond = c("Incongruent", "Congruent"), rt = c(mean(incongruent), mean(congruent)))
 
 p <- ggplot(df, aes(x = cond, y = rt, fill = cond)) + geom_bar(stat = "identity", width = 0.5) + labs(title = "Condition on Reaction Time", x = "Condition", y = "Reaction Time (s)") + theme(legend.position = "right") + theme_minimal()
+
 p
 \end{verbatim}
 
 \begin{center}
 \includegraphics[width=.9\linewidth]{barplot_stroop.png}
+\end{center}
+
+
+\begin{verbatim}
+library(ggplot2)
+
+data <- read.csv("/home/keagan/GitRepos/363Stroop/363Stroop_Data_Dec_4.csv")
+
+Lincongruent <- c()
+counter = 1
+while(counter <= 20) {
+  T = data[which(data$Trial == counter & data$Congruent == 0),]
+  mean_RT = mean(T$Time)
+  Lincongruent = append(Lincongruent, mean_RT)
+  counter = counter + 1
+}
+
+Lcongruent <- c()
+counter = 1
+while(counter <= 20) {
+  T = data[which(data$Trial == counter & data$Congruent == 1),]
+  mean_RT = mean(T$Time)
+  Lcongruent = append(Lcongruent, mean_RT)
+  counter = counter + 1
+}
+
+cond_rt_df <- data.frame(Condition = rep(c("Congruent", "Incongruent"), each = 20), RT = c(Lcongruent, Lincongruent))
+df <- data.frame(Congruent = Lcongruent, Incongruent = Lincongruent)
+df$Interference <- df$Incongruent - df$Congruent
+
+incongruent_mean <- mean(data[which(data$Congruent == 0),]$Time)
+congruent_mean <- mean(data[which(data$Congruent == 1),]$Time)
+overall <- data.frame(cond = c("Incongruent", "Congruent"), rt = c(incongruent_mean, congruent_mean))
+
+\end{verbatim}
+
+\begin{center}
+\includegraphics[width=.9\linewidth]{converted_stroop1.png}
+\end{center}
+
+
+
+
+
+\begin{verbatim}
+
+p <- ggplot(overall, aes(x = cond, y = rt, fill = cond)) + geom_bar(stat = "identity", width = 0.5) + labs(title = "Mean Reaction Time", x = "Condition", y = "Reaction Time (s)") + theme_classic() + theme(plot.title = element_text(hjust = 0.5, size = 15, face = "bold"), legend.position = "right", legend.background = element_blank(), legend.box.background = element_rect(colour = "black"), panel.background = element_blank(), panel.grid = element_blank(), panel.border = element_rect(colour = "black", fill = NA, size = 0.75))
+
+p
+
+\end{verbatim}
+
+\begin{center}
+\includegraphics[width=.9\linewidth]{converted_stroop2.png}
+\end{center}
+
+
+
+\begin{verbatim}
+
+density_plot <- ggplot(cond_rt_df, aes(x = RT, color = Condition, fill = Condition)) + geom_density(alpha = 0.5) + labs(title = "Response Time Density Plot", x = "Response Time (s)", y = "Frequency") + theme_classic() + theme(plot.title = element_text(hjust = 0.5, size = 15, face = "bold"), legend.position = "right", legend.background = element_blank(), legend.box.background = element_rect(colour = "black"), panel.background = element_blank(), panel.grid = element_blank(), panel.border = element_rect(colour = "black", fill = NA, size = 0.75)) + xlim(0.25, 1.75)
+
+density_plot
+
+\end{verbatim}
+
+\begin{center}
+\includegraphics[width=.9\linewidth]{converted_stroop3.png}
+\end{center}
+
+
+
+\begin{verbatim}
+
+interference_hist <- ggplot(df, aes(x = Interference)) + geom_histogram(binwidth = 0.05, color = "white", fill = "darkturquoise") + labs(title = "Interference Histogram", x = "Increase in Response Time (s)", y = "Number of Observers") + theme_classic() + theme(plot.title = element_text(hjust = 0.5, size = 15, face = "bold"), panel.background = element_blank(), panel.grid = element_blank(), panel.border = element_rect(colour = "black", fill = NA, size = 0.75))
+
+interference_hist
+
+\end{verbatim}
+
+\begin{center}
+\includegraphics[width=.9\linewidth]{converted_stroop4.png}
+\end{center}
+
+
+
+
+\begin{verbatim}
+
+RT_congruent <- ggplot(df, aes(x = Congruent)) + geom_histogram(alpha = 0.5, fill = "steelblue") + geom_density(color = "steelblue") + labs(title = "Response Time for Congruent Words", x = "Response Time (s)", y = "Frequency") + theme_classic() + theme(plot.title = element_text(hjust = 0.5, size = 15, face = "bold"), panel.background = element_blank(), panel.grid = element_blank(), panel.border = element_rect(colour = "black", fill = NA, size = 0.75)) + xlim(0.25, 1.75) + ylim(0, 5)
+
+RT_congruent
+
+\end{verbatim}
+
+\begin{center}
+\includegraphics[width=.9\linewidth]{converted_stroop5.png}
+\end{center}
+
+
+
+
+\begin{verbatim}
+
+RT_incongruent <- ggplot(df, aes(x = Incongruent)) + geom_histogram(alpha = 0.5, fill = "steelblue") + geom_density(color = "steelblue") + labs(title = "Response Time for Incongruent Words", x = "Response Time (s)", y = "Frequency") + theme_classic() + theme(plot.title = element_text(hjust = 0.5, size = 15, face = "bold"), panel.background = element_blank(), panel.grid = element_blank(), panel.border = element_rect(colour = "black", fill = NA, size = 0.75)) + xlim(0.25, 1.75) + ylim(0, 5)
+
+RT_incongruent
+
+\end{verbatim}
+
+\begin{center}
+\includegraphics[width=.9\linewidth]{converted_stroop6.png}
+\end{center}
+
+
+
+\begin{verbatim}
+
+RT_cond <- ggplot(cond_rt_df, aes(x = RT, color = Condition, fill = Condition)) + geom_histogram(color = NA, alpha = 0.5, position = "identity") + geom_density(alpha = 0) + labs(title = "Response Time for Congruent vs. Incongruent Words", x = "Response Time (s)", y = "Frequency") + theme_classic() + theme(plot.title = element_text(hjust = 0.5, size = 15, face = "bold"), legend.position = "right", legend.background = element_blank(), legend.box.background = element_rect(colour = "black"), panel.background = element_blank(), panel.grid = element_blank(), panel.border = element_rect(colour = "black", fill = NA, size = 0.75)) + xlim(0.25, 1.75) + ylim(0, 5)
+
+RT_cond
+
+\end{verbatim}
+
+\begin{center}
+\includegraphics[width=.9\linewidth]{converted_stroop7.png}
 \end{center}
 \end{document}

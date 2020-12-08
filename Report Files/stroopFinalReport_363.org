@@ -167,8 +167,128 @@ congruent <- data[which(data$Congruent == 1),]$Time
 df <- data.frame(cond = c("Incongruent", "Congruent"), rt = c(mean(incongruent), mean(congruent)))
 
 p <- ggplot(df, aes(x = cond, y = rt, fill = cond)) + geom_bar(stat = "identity", width = 0.5) + labs(title = "Condition on Reaction Time", x = "Condition", y = "Reaction Time (s)") + theme(legend.position = "right") + theme_minimal()
+
 p
 #+END_SRC
 
 #+RESULTS:
 [[file:barplot_stroop.png]]
+
+
+#+BEGIN_SRC R :session *363 Stroop* :exports both :results graphics :file "converted_stroop1.png"
+library(ggplot2)
+
+data <- read.csv("/home/keagan/GitRepos/363Stroop/363Stroop_Data_Dec_4.csv")
+
+Lincongruent <- c()
+counter = 1
+while(counter <= 20) {
+  T = data[which(data$Trial == counter & data$Congruent == 0),]
+  mean_RT = mean(T$Time)
+  Lincongruent = append(Lincongruent, mean_RT)
+  counter = counter + 1
+}
+
+Lcongruent <- c()
+counter = 1
+while(counter <= 20) {
+  T = data[which(data$Trial == counter & data$Congruent == 1),]
+  mean_RT = mean(T$Time)
+  Lcongruent = append(Lcongruent, mean_RT)
+  counter = counter + 1
+}
+
+cond_rt_df <- data.frame(Condition = rep(c("Congruent", "Incongruent"), each = 20), RT = c(Lcongruent, Lincongruent))
+df <- data.frame(Congruent = Lcongruent, Incongruent = Lincongruent)
+df$Interference <- df$Incongruent - df$Congruent
+
+incongruent_mean <- mean(data[which(data$Congruent == 0),]$Time)
+congruent_mean <- mean(data[which(data$Congruent == 1),]$Time)
+overall <- data.frame(cond = c("Incongruent", "Congruent"), rt = c(incongruent_mean, congruent_mean))
+
+#+END_SRC
+
+#+RESULTS:
+[[file:converted_stroop1.png]]
+
+
+
+
+
+#+BEGIN_SRC R :session *363 Stroop* :exports both :results graphics :file "converted_stroop2.png"
+
+p <- ggplot(overall, aes(x = cond, y = rt, fill = cond)) + geom_bar(stat = "identity", width = 0.5) + labs(title = "Mean Reaction Time", x = "Condition", y = "Reaction Time (s)") + theme_classic() + theme(plot.title = element_text(hjust = 0.5, size = 15, face = "bold"), legend.position = "right", legend.background = element_blank(), legend.box.background = element_rect(colour = "black"), panel.background = element_blank(), panel.grid = element_blank(), panel.border = element_rect(colour = "black", fill = NA, size = 0.75))
+
+p
+
+#+END_SRC
+
+#+RESULTS:
+[[file:converted_stroop2.png]]
+
+
+
+#+BEGIN_SRC R :session *363 Stroop* :exports both :results graphics :file "converted_stroop3.png"
+
+density_plot <- ggplot(cond_rt_df, aes(x = RT, color = Condition, fill = Condition)) + geom_density(alpha = 0.5) + labs(title = "Response Time Density Plot", x = "Response Time (s)", y = "Frequency") + theme_classic() + theme(plot.title = element_text(hjust = 0.5, size = 15, face = "bold"), legend.position = "right", legend.background = element_blank(), legend.box.background = element_rect(colour = "black"), panel.background = element_blank(), panel.grid = element_blank(), panel.border = element_rect(colour = "black", fill = NA, size = 0.75)) + xlim(0.25, 1.75)
+
+density_plot
+
+#+END_SRC
+
+#+RESULTS:
+[[file:converted_stroop3.png]]
+
+
+
+#+BEGIN_SRC R :session *363 Stroop* :exports both :results graphics :file "converted_stroop4.png"
+
+interference_hist <- ggplot(df, aes(x = Interference)) + geom_histogram(binwidth = 0.05, color = "white", fill = "darkturquoise") + labs(title = "Interference Histogram", x = "Increase in Response Time (s)", y = "Number of Observers") + theme_classic() + theme(plot.title = element_text(hjust = 0.5, size = 15, face = "bold"), panel.background = element_blank(), panel.grid = element_blank(), panel.border = element_rect(colour = "black", fill = NA, size = 0.75))
+
+interference_hist
+
+#+END_SRC
+
+#+RESULTS:
+[[file:converted_stroop4.png]]
+
+
+
+
+#+BEGIN_SRC R :session *363 Stroop* :exports both :results graphics :file "converted_stroop5.png"
+
+RT_congruent <- ggplot(df, aes(x = Congruent)) + geom_histogram(alpha = 0.5, fill = "steelblue") + geom_density(color = "steelblue") + labs(title = "Response Time for Congruent Words", x = "Response Time (s)", y = "Frequency") + theme_classic() + theme(plot.title = element_text(hjust = 0.5, size = 15, face = "bold"), panel.background = element_blank(), panel.grid = element_blank(), panel.border = element_rect(colour = "black", fill = NA, size = 0.75)) + xlim(0.25, 1.75) + ylim(0, 5)
+
+RT_congruent
+
+#+END_SRC
+
+#+RESULTS:
+[[file:converted_stroop5.png]]
+
+
+
+
+#+BEGIN_SRC R :session *363 Stroop* :exports both :results graphics :file "converted_stroop6.png"
+
+RT_incongruent <- ggplot(df, aes(x = Incongruent)) + geom_histogram(alpha = 0.5, fill = "steelblue") + geom_density(color = "steelblue") + labs(title = "Response Time for Incongruent Words", x = "Response Time (s)", y = "Frequency") + theme_classic() + theme(plot.title = element_text(hjust = 0.5, size = 15, face = "bold"), panel.background = element_blank(), panel.grid = element_blank(), panel.border = element_rect(colour = "black", fill = NA, size = 0.75)) + xlim(0.25, 1.75) + ylim(0, 5)
+
+RT_incongruent
+
+#+END_SRC
+
+#+RESULTS:
+[[file:converted_stroop6.png]]
+
+
+
+#+BEGIN_SRC R :session *363 Stroop* :exports both :results graphics :file "converted_stroop7.png"
+
+RT_cond <- ggplot(cond_rt_df, aes(x = RT, color = Condition, fill = Condition)) + geom_histogram(color = NA, alpha = 0.5, position = "identity") + geom_density(alpha = 0) + labs(title = "Response Time for Congruent vs. Incongruent Words", x = "Response Time (s)", y = "Frequency") + theme_classic() + theme(plot.title = element_text(hjust = 0.5, size = 15, face = "bold"), legend.position = "right", legend.background = element_blank(), legend.box.background = element_rect(colour = "black"), panel.background = element_blank(), panel.grid = element_blank(), panel.border = element_rect(colour = "black", fill = NA, size = 0.75)) + xlim(0.25, 1.75) + ylim(0, 5)
+
+RT_cond
+
+#+END_SRC
+
+#+RESULTS:
+[[file:converted_stroop7.png]]
