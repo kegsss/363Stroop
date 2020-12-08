@@ -1,4 +1,4 @@
-% Created 2020-12-07 Mon 20:01
+% Created 2020-12-07 Mon 19:43
 % Intended LaTeX compiler: pdflatex
 \documentclass{article}
 \usepackage[utf8]{inputenc}
@@ -33,13 +33,13 @@
 This is to test your installation of the files and programs needed to make a simple report. To compile to pdf use \texttt{C-c C-e l p}.
 
 \section{Introduction}
-\label{sec:org8344601}
+\label{sec:orgbdc3519}
 
 Insert introduction text here\ldots{}
 
 
 \section{Methods}
-\label{sec:org0e7e28d}
+\label{sec:org22ebc97}
 
 Insert some method text here
 
@@ -50,7 +50,7 @@ library(random)
 
 
 \section{Results}
-\label{sec:org5ab3b9e}
+\label{sec:org49a52bf}
 
 Insert some results text here and other content (i.e. code, etc)
 
@@ -63,7 +63,7 @@ print(mean(y))
 \end{verbatim}
 
 \begin{verbatim}
--0.436099408057575
+0.304133655574248
 \end{verbatim}
 
 Here is some more R source code!
@@ -139,18 +139,18 @@ xinline = rnorm(20)
 
 We can use that code in this way:
 
-The mean of 20 mean 0 normally distributed numbers is 0.0581210550728103.
+The mean of 20 mean 0 normally distributed numbers is 0.2677680022121.
 
 
 \section{Conclusions}
-\label{sec:orgddebfc8}
+\label{sec:orgf5fac26}
 
 Put some type of conlusion content here\ldots{}.
 
 
 
 \section{References}
-\label{sec:orge919dba}
+\label{sec:orgcdf8542}
 
 Insert some references here, such as\ldots{}
 
@@ -160,7 +160,7 @@ This article \cite{britt}
 
 
 \section{Testing Plots here\ldots{}..}
-\label{sec:orge9ffbf0}
+\label{sec:org2382b36}
 \begin{verbatim}
 library(ggplot2)
 
@@ -214,10 +214,7 @@ overall <- data.frame(cond = c("Incongruent", "Congruent"), rt = c(incongruent_m
 \end{verbatim}
 
 \begin{center}
-\begin{tabular}{lr}
-Incongruent & 0.915385980111821\\
-Congruent & 0.843044126528736\\
-\end{tabular}
+\includegraphics[width=.9\linewidth]{converted_stroop1.png}
 \end{center}
 
 

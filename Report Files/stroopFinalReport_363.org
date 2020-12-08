@@ -175,7 +175,7 @@ p
 [[file:barplot_stroop.png]]
 
 
-#+BEGIN_SRC R :session *363 Stroop* :exports both :results graphics :file "converted_stroop1.png"
+#+BEGIN_SRC R :session *363 Stroop* :exports both
 library(ggplot2)
 
 data <- read.csv("/home/keagan/GitRepos/363Stroop/363Stroop_Data_Dec_4.csv")
@@ -209,7 +209,8 @@ overall <- data.frame(cond = c("Incongruent", "Congruent"), rt = c(incongruent_m
 #+END_SRC
 
 #+RESULTS:
-[[file:converted_stroop1.png]]
+| Incongruent | 0.915385980111821 |
+| Congruent   | 0.843044126528736 |
 
 
 
