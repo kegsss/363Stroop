@@ -1,11 +1,5 @@
-library(tidyverse)
-dtben <- read_csv("363Stroop_Data_Dec_4.csv")
-
-
-###
-###
-###
-
+##library(tidyverse)
+dtben <- read.csv("363Stroop_Data_Dec_4.csv")
 
 ## An example of how our data is structured
 head(dtben, 10)
@@ -16,12 +10,6 @@ summary(dtben)
 ## The total number of trials
 rng <- max(dtben$Time.Length) - min(dtben$Time.Length)
 rng
-
-
-###
-###
-###
-
 
 ## Creating a linear regression between time and congruence
 attach(dtben)

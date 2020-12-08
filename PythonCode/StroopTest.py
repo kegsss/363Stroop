@@ -17,7 +17,7 @@ RTclock=core.Clock()
 
 win=visual.Window(size=(600,600))
 
-instructionText="Press 'z' when congruent and '/' when incongruent. Press any key to start."
+instructionText="Press 'z' for congruent words & colours and '/' when incongruent. Press any key to start."
 
 showInstruction=visual.TextStim(win,instructionText,color="black",height=0.1)
 showInstruction.draw()

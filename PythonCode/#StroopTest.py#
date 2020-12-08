@@ -14,7 +14,7 @@ probCongruent=0.25
 
 numberTrials=20
 RTclock=core.Clock()
-
+z
 win=visual.Window(size=(600,600))
 
 instructionText="Press 'z' when congruent and '/' when incongruent. Press any key to start."

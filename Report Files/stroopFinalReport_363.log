@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2020.11.4)  7 DEC 2020 20:01
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2020.11.4)  8 DEC 2020 17:20
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -308,48 +308,73 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 )
 \Hy@SectionHShift=\skip59
 )
+! Too many }'s.
+l.17 \bibliographystyle{plain}}
+                               
+You've closed more groups than you opened.
+Such booboos are generally harmless, so keep going.
+
+(/usr/share/texlive/texmf-dist/tex/latex/geometry/geometry.sty
+Package: geometry 2020/01/02 v5.9 Page Geometry
+
+(/usr/share/texlive/texmf-dist/tex/generic/iftex/ifvtex.sty
+Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
+)
+\Gm@cnth=\count272
+\Gm@cntv=\count273
+\c@Gm@tempcnt=\count274
+\Gm@bindingoffset=\dimen156
+\Gm@wd@mp=\dimen157
+\Gm@odd@mp=\dimen158
+\Gm@even@mp=\dimen159
+\Gm@layoutwidth=\dimen160
+\Gm@layoutheight=\dimen161
+\Gm@layouthoffset=\dimen162
+\Gm@layoutvoffset=\dimen163
+\Gm@dimlist=\toks26
+)
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\\' on input line 27.
+(hyperref)                removing `\\' on input line 28.
 
 (/usr/share/texlive/texmf-dist/tex/latex/l3backend/l3backend-pdfmode.def
 File: l3backend-pdfmode.def 2020-02-03 L3 backend support: PDF mode
-\l__kernel_color_stack_int=\count272
+\l__kernel_color_stack_int=\count275
 \l__pdf_internal_box=\box56
 )
 (./stroopFinalReport_363.aux)
 \openout1 = `stroopFinalReport_363.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 28.
-LaTeX Font Info:    ... okay on input line 28.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 28.
-LaTeX Font Info:    ... okay on input line 28.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 28.
-LaTeX Font Info:    ... okay on input line 28.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 28.
-LaTeX Font Info:    ... okay on input line 28.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 28.
-LaTeX Font Info:    ... okay on input line 28.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 28.
-LaTeX Font Info:    ... okay on input line 28.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 28.
-LaTeX Font Info:    ... okay on input line 28.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 28.
-LaTeX Font Info:    ... okay on input line 28.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 29.
+LaTeX Font Info:    ... okay on input line 29.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 29.
+LaTeX Font Info:    ... okay on input line 29.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 29.
+LaTeX Font Info:    ... okay on input line 29.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 29.
+LaTeX Font Info:    ... okay on input line 29.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 29.
+LaTeX Font Info:    ... okay on input line 29.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 29.
+LaTeX Font Info:    ... okay on input line 29.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 29.
+LaTeX Font Info:    ... okay on input line 29.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 29.
+LaTeX Font Info:    ... okay on input line 29.
 
 (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count273
-\scratchdimen=\dimen156
+\scratchcounter=\count276
+\scratchdimen=\dimen164
 \scratchbox=\box57
-\nofMPsegments=\count274
-\nofMParguments=\count275
-\everyMPshowfont=\toks26
-\MPscratchCnt=\count276
-\MPscratchDim=\dimen157
-\MPnumerator=\count277
-\makeMPintoPDFobject=\count278
-\everyMPtoPDFconversion=\toks27
+\nofMPsegments=\count277
+\nofMParguments=\count278
+\everyMPshowfont=\toks27
+\MPscratchCnt=\count279
+\MPscratchDim=\dimen165
+\MPnumerator=\count280
+\makeMPintoPDFobject=\count281
+\everyMPtoPDFconversion=\toks28
 ) (/usr/share/texlive/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
@@ -360,7 +385,7 @@ File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
 \AtBeginShipoutBox=\box58
-Package hyperref Info: Link coloring OFF on input line 28.
+Package hyperref Info: Link coloring OFF on input line 29.
 
 (/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2019/09/16 v2.46 Cross-referencing by name of section
@@ -371,23 +396,57 @@ Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
 (/usr/share/texlive/texmf-dist/tex/generic/gettitlestring/gettitlestring.sty
 Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
-\c@section@level=\count279
+\c@section@level=\count282
 )
-LaTeX Info: Redefining \ref on input line 28.
-LaTeX Info: Redefining \pageref on input line 28.
-LaTeX Info: Redefining \nameref on input line 28.
+LaTeX Info: Redefining \ref on input line 29.
+LaTeX Info: Redefining \pageref on input line 29.
+LaTeX Info: Redefining \nameref on input line 29.
 
 (./stroopFinalReport_363.out) (./stroopFinalReport_363.out)
 \@outlinefile=\write3
 \openout3 = `stroopFinalReport_363.out'.
 
-LaTeX Font Info:    Trying to load font information for U+msa on input line 31.
 
+*geometry* driver: auto-detecting
+*geometry* detected driver: pdftex
+*geometry* verbose mode - [ preamble ] result:
+* driver: pdftex
+* paper: <default>
+* layout: <same size as paper>
+* layoutoffset:(h,v)=(0.0pt,0.0pt)
+* modes: 
+* h-part:(L,W,R)=(72.26999pt, 469.75502pt, 72.26999pt)
+* v-part:(T,H,B)=(72.26999pt, 650.43001pt, 72.26999pt)
+* \paperwidth=614.295pt
+* \paperheight=794.96999pt
+* \textwidth=469.75502pt
+* \textheight=650.43001pt
+* \oddsidemargin=0.0pt
+* \evensidemargin=0.0pt
+* \topmargin=-37.0pt
+* \headheight=12.0pt
+* \headsep=25.0pt
+* \topskip=10.0pt
+* \footskip=30.0pt
+* \marginparwidth=65.0pt
+* \marginparsep=11.0pt
+* \columnsep=10.0pt
+* \skip\footins=9.0pt plus 4.0pt minus 2.0pt
+* \hoffset=0.0pt
+* \voffset=0.0pt
+* \mag=1000
+* \@twocolumnfalse
+* \@twosidefalse
+* \@mparswitchfalse
+* \@reversemarginfalse
+* (1in=72.27pt=25.4mm, 1cm=28.453pt)
+
+LaTeX Font Info:    Trying to load font information for U+msa on input line 32.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 31.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 32.
 
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
@@ -397,81 +456,72 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 \tf@toc=\write4
 \openout4 = `stroopFinalReport_363.toc'.
 
-LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 3
-3.
+
+Underfull \hbox (badness 10000) in paragraph at lines 39--40
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 46--47
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 48--49
+
+ []
+
+[1
+
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
+LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 5
+1.
 
 (/usr/share/texlive/texmf-dist/tex/latex/base/t1cmtt.fd
 File: t1cmtt.fd 2019/12/16 v2.5j Standard LaTeX font definitions
-) [1
-
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
-Overfull \hbox (6.66412pt too wide) in paragraph at lines 82--82
-[]  \T1/cmtt/m/n/10 print(paste(a, "multiplied by", b, "is", (print(multiply(a,
-b)))))[] 
+)
+Overfull \hbox (97.10655pt too wide) in paragraph at lines 108--108
+[]\T1/cmtt/m/n/10 instructionText="Press 'z' for congruent words & colours  and
+ '/' when incongruent. Press any key to start."[] 
  []
 
-
-Overfull \hbox (6.66412pt too wide) in paragraph at lines 99--99
-[]\T1/cmtt/m/n/10 position = ['1st', '2nd', '3rd', '4th', '5th', '6th', '7th', 
-'8th'][] 
+[2]
+Overfull \hbox (13.12706pt too wide) in paragraph at lines 175--175
+[]\T1/cmtt/m/n/10 t.test(Time ~ Congruent, mu=0, alt="two.sided", conf=0.95, va
+r.eq=F, paired=F, data = dtben)[] 
  []
 
-<simplePlot.png, id=47, 481.8pt x 481.8pt>
-File: simplePlot.png Graphic file (type png)
-<use simplePlot.png>
-Package pdftex.def Info: simplePlot.png  used on input line 109.
-(pdftex.def)             Requested size: 310.4979pt x 310.50497pt.
-[2] [3 <./simplePlot.png>] (./stroopFinalReport_363.bbl)
-Overfull \hbox (53.90259pt too wide) in paragraph at lines 176--176
-[]\T1/cmtt/m/n/10 data <- read.csv("/home/keagan/GitRepos/363Stroop/363Stroop_D
-ata_Dec_4.csv")[] 
- []
+[3] [4] [5] [6] [7] (./stroopFinalReport_363.bbl
+! Misplaced alignment tab character &.
+l.8 \newblock {\em Attention, perception &
+                                           psychophysics}, 82(5):2271--2301,...
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
 
-
-Overfull \hbox (169.37439pt too wide) in paragraph at lines 176--176
-[]\T1/cmtt/m/n/10 df <- data.frame(cond = c("Incongruent", "Congruent"), rt = c
-(mean(incongruent), mean(congruent)))[] 
- []
-
-
-Overfull \hbox (883.20007pt too wide) in paragraph at lines 176--176
-[]\T1/cmtt/m/n/10 p <- ggplot(df, aes(x = cond, y = rt, fill = cond)) + geom_ba
-r(stat = "identity", width = 0.5) + labs(title = "Condition on Reaction Time", 
-x = "Condition", y = "Reaction Time (s)") + theme(legend.position = "right") + 
-theme_minimal()[] 
- []
-
-<barplot_stroop.png, id=58, 481.8pt x 481.8pt>
+) [8]
+<barplot_stroop.png, id=88, 481.8pt x 481.8pt>
 File: barplot_stroop.png Graphic file (type png)
 <use barplot_stroop.png>
-Package pdftex.def Info: barplot_stroop.png  used on input line 179.
-(pdftex.def)             Requested size: 310.4979pt x 310.50497pt.
-[4]
-Overfull \hbox (53.90259pt too wide) in paragraph at lines 214--214
-[]\T1/cmtt/m/n/10 data <- read.csv("/home/keagan/GitRepos/363Stroop/363Stroop_D
-ata_Dec_4.csv")[] 
- []
-
-[5 <./barplot_stroop.png>]
-Overfull \hbox (269.10004pt too wide) in paragraph at lines 214--214
+Package pdftex.def Info: barplot_stroop.png  used on input line 436.
+(pdftex.def)             Requested size: 422.77664pt x 422.78697pt.
+ [9 <./barplot_stroop.png>]
+Overfull \hbox (144.34502pt too wide) in paragraph at lines 471--471
 []\T1/cmtt/m/n/10 cond_rt_df <- data.frame(Condition = rep(c("Congruent", "Inco
 ngruent"), each = 20), RT = c(Lcongruent, Lincongruent))[] 
  []
 
 
-Overfull \hbox (11.91284pt too wide) in paragraph at lines 214--214
-[]\T1/cmtt/m/n/10 df <- data.frame(Congruent = Lcongruent, Incongruent = Lincon
-gruent)[] 
- []
-
-
-Overfull \hbox (185.12054pt too wide) in paragraph at lines 214--214
+Overfull \hbox (60.36552pt too wide) in paragraph at lines 471--471
 []\T1/cmtt/m/n/10 overall <- data.frame(cond = c("Incongruent", "Congruent"), r
 t = c(incongruent_mean, congruent_mean))[] 
  []
 
 
-Overfull \hbox (2421.07452pt too wide) in paragraph at lines 233--233
+Overfull \hbox (2296.3195pt too wide) in paragraph at lines 490--490
 []\T1/cmtt/m/n/10 p <- ggplot(overall, aes(x = cond, y = rt, fill = cond)) + ge
 om_bar(stat = "identity", width = 0.5) + labs(title = "Mean Reaction Time", x =
  "Condition", y = "Reaction Time (s)") + theme_classic() + theme(plot.title = e
@@ -481,13 +531,13 @@ r = "black"), panel.background = element_blank(), panel.grid = element_blank(),
  panel.border = element_rect(colour = "black", fill = NA, size = 0.75))[] 
  []
 
-<converted_stroop2.png, id=71, 481.8pt x 481.8pt>
+<converted_stroop2.png, id=94, 481.8pt x 481.8pt>
 File: converted_stroop2.png Graphic file (type png)
 <use converted_stroop2.png>
-Package pdftex.def Info: converted_stroop2.png  used on input line 236.
-(pdftex.def)             Requested size: 310.4979pt x 310.50497pt.
-
-Overfull \hbox (2631.02325pt too wide) in paragraph at lines 247--247
+Package pdftex.def Info: converted_stroop2.png  used on input line 493.
+(pdftex.def)             Requested size: 422.77664pt x 422.78697pt.
+[10]
+Overfull \hbox (2506.26823pt too wide) in paragraph at lines 504--504
 []\T1/cmtt/m/n/10 density_plot <- ggplot(cond_rt_df, aes(x = RT, color = Condit
 ion, fill = Condition)) + geom_density(alpha = 0.5) + labs(title = "Response Ti
 me Density Plot", x = "Response Time (s)", y = "Frequency") + theme_classic() +
@@ -498,14 +548,13 @@ id = element_blank(), panel.border = element_rect(colour = "black", fill = NA,
 size = 0.75)) + xlim(0.25, 1.75)[] 
  []
 
-[6 <./converted_stroop2.png>]
-<converted_stroop3.png, id=77, 481.8pt x 481.8pt>
+<converted_stroop3.png, id=99, 481.8pt x 481.8pt>
 File: converted_stroop3.png Graphic file (type png)
 <use converted_stroop3.png>
-Package pdftex.def Info: converted_stroop3.png  used on input line 250.
-(pdftex.def)             Requested size: 310.4979pt x 310.50497pt.
-
-Overfull \hbox (2085.15656pt too wide) in paragraph at lines 261--261
+Package pdftex.def Info: converted_stroop3.png  used on input line 507.
+(pdftex.def)             Requested size: 422.77664pt x 422.78697pt.
+[11 <./converted_stroop2.png>]
+Overfull \hbox (1960.40154pt too wide) in paragraph at lines 518--518
 []\T1/cmtt/m/n/10 interference_hist <- ggplot(df, aes(x = Interference)) + geom
 _histogram(binwidth = 0.05, color = "white", fill = "darkturquoise") + labs(tit
 le = "Interference Histogram", x = "Increase in Response Time (s)", y = "Number
@@ -515,13 +564,13 @@ lement_blank(), panel.border = element_rect(colour = "black", fill = NA, size =
  0.75))[] 
  []
 
-<converted_stroop4.png, id=78, 481.8pt x 481.8pt>
+<converted_stroop4.png, id=105, 481.8pt x 481.8pt>
 File: converted_stroop4.png Graphic file (type png)
 <use converted_stroop4.png>
-Package pdftex.def Info: converted_stroop4.png  used on input line 264.
-(pdftex.def)             Requested size: 310.4979pt x 310.50497pt.
-[7 <./converted_stroop3.png (PNG copy)>]
-Overfull \hbox (2211.1258pt too wide) in paragraph at lines 276--276
+Package pdftex.def Info: converted_stroop4.png  used on input line 521.
+(pdftex.def)             Requested size: 422.77664pt x 422.78697pt.
+[12 <./converted_stroop3.png (PNG copy)>]
+Overfull \hbox (2086.37077pt too wide) in paragraph at lines 533--533
 []\T1/cmtt/m/n/10 RT_congruent <- ggplot(df, aes(x = Congruent)) + geom_histogr
 am(alpha = 0.5, fill = "steelblue") + geom_density(color = "steelblue") + labs(
 title = "Response Time for Congruent Words", x = "Response Time (s)", y = "Freq
@@ -531,13 +580,13 @@ lank(), panel.border = element_rect(colour = "black", fill = NA, size = 0.75))
 + xlim(0.25, 1.75) + ylim(0, 5)[] 
  []
 
-<converted_stroop5.png, id=84, 481.8pt x 481.8pt>
+<converted_stroop5.png, id=110, 481.8pt x 481.8pt>
 File: converted_stroop5.png Graphic file (type png)
 <use converted_stroop5.png>
-Package pdftex.def Info: converted_stroop5.png  used on input line 279.
-(pdftex.def)             Requested size: 310.4979pt x 310.50497pt.
-[8 <./converted_stroop4.png (PNG copy)>]
-Overfull \hbox (2242.6181pt too wide) in paragraph at lines 291--291
+Package pdftex.def Info: converted_stroop5.png  used on input line 536.
+(pdftex.def)             Requested size: 422.77664pt x 422.78697pt.
+[13 <./converted_stroop4.png (PNG copy)>]
+Overfull \hbox (2117.86308pt too wide) in paragraph at lines 548--548
 []\T1/cmtt/m/n/10 RT_incongruent <- ggplot(df, aes(x = Incongruent)) + geom_his
 togram(alpha = 0.5, fill = "steelblue") + geom_density(color = "steelblue") + l
 abs(title = "Response Time for Incongruent Words", x = "Response Time (s)", y =
@@ -547,13 +596,13 @@ ment_blank(), panel.border = element_rect(colour = "black", fill = NA, size = 0
 .75)) + xlim(0.25, 1.75) + ylim(0, 5)[] 
  []
 
-<converted_stroop6.png, id=89, 481.8pt x 481.8pt>
+<converted_stroop6.png, id=116, 481.8pt x 481.8pt>
 File: converted_stroop6.png Graphic file (type png)
 <use converted_stroop6.png>
-Package pdftex.def Info: converted_stroop6.png  used on input line 294.
-(pdftex.def)             Requested size: 310.4979pt x 310.50497pt.
-[9 <./converted_stroop5.png (PNG copy)>]
-Overfull \hbox (3124.40277pt too wide) in paragraph at lines 305--305
+Package pdftex.def Info: converted_stroop6.png  used on input line 551.
+(pdftex.def)             Requested size: 422.77664pt x 422.78697pt.
+[14 <./converted_stroop5.png (PNG copy)>]
+Overfull \hbox (2999.64775pt too wide) in paragraph at lines 562--562
 []\T1/cmtt/m/n/10 RT_cond <- ggplot(cond_rt_df, aes(x = RT, color = Condition, 
 fill = Condition)) + geom_histogram(color = NA, alpha = 0.5, position = "identi
 ty") + geom_density(alpha = 0) + labs(title = "Response Time for Congruent vs. 
@@ -565,43 +614,44 @@ grid = element_blank(), panel.border = element_rect(colour = "black", fill = NA
 , size = 0.75)) + xlim(0.25, 1.75) + ylim(0, 5)[] 
  []
 
-<converted_stroop7.png, id=94, 481.8pt x 481.8pt>
+<converted_stroop7.png, id=121, 481.8pt x 481.8pt>
 File: converted_stroop7.png Graphic file (type png)
 <use converted_stroop7.png>
-Package pdftex.def Info: converted_stroop7.png  used on input line 308.
-(pdftex.def)             Requested size: 310.4979pt x 310.50497pt.
-[10 <./converted_stroop6.png (PNG copy)>]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 310.
- [11 <./converted_stroop7.png (PNG copy)>]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 310.
+Package pdftex.def Info: converted_stroop7.png  used on input line 565.
+(pdftex.def)             Requested size: 422.77664pt x 422.78697pt.
+[15 <./converted_stroop6.png (PNG copy)>]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 567.
+ [16 <./converted_stroop7.png (PNG copy)>]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 567.
  (./stroopFinalReport_363.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 310.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 310.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 567.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 567.
 Package rerunfilecheck Info: File `stroopFinalReport_363.out' has not changed.
-(rerunfilecheck)             Checksum: 39B40BAE4C2EBE98BFEABBF58B042500;281.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 310.
+(rerunfilecheck)             Checksum: ADF5DD21A6274FF41DE11E53CADD207A;365.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 567.
  ) 
 Here is how much of TeX's memory you used:
- 6985 strings out of 483183
- 101347 string characters out of 5966292
- 353277 words of memory out of 5000000
- 21816 multiletter control sequences out of 15000+600000
- 545085 words of font info for 60 fonts, out of 8000000 for 9000
+ 7448 strings out of 483183
+ 108078 string characters out of 5966292
+ 369671 words of memory out of 5000000
+ 22266 multiletter control sequences out of 15000+600000
+ 545861 words of font info for 61 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 34i,6n,31p,708b,452s stack positions out of 5000i,500n,10000p,200000b,80000s
- </home/keagan/.texlive2019/texmf-var/fonts/pk/ljfour/jknappen/ec/ecti1000.60
-0pk> </home/keagan/.texlive2019/texmf-var/fonts/pk/ljfour/jknappen/ec/ectt1000.
-600pk> </home/keagan/.texlive2019/texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm100
-0.600pk> </home/keagan/.texlive2019/texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1
+ 34i,6n,34p,1158b,454s stack positions out of 5000i,500n,10000p,200000b,80000s
+ </home/keagan/.texlive2019/texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1200.60
+0pk> </home/keagan/.texlive2019/texmf-var/fonts/pk/ljfour/jknappen/ec/ecti1000.
+600pk> </home/keagan/.texlive2019/texmf-var/fonts/pk/ljfour/jknappen/ec/ectt100
+0.600pk> </home/keagan/.texlive2019/texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1
 000.600pk> </home/keagan/.texlive2019/texmf-var/fonts/pk/ljfour/jknappen/ec/ecb
-x1440.600pk> </home/keagan/.texlive2019/texmf-var/fonts/pk/ljfour/jknappen/ec/e
-cti1200.600pk> </home/keagan/.texlive2019/texmf-var/fonts/pk/ljfour/jknappen/ec
-/ecrm1200.600pk> </home/keagan/.texlive2019/texmf-var/fonts/pk/ljfour/jknappen/
-ec/ecrm1728.600pk>
-Output written on stroopFinalReport_363.pdf (11 pages, 185861 bytes).
+x1000.600pk> </home/keagan/.texlive2019/texmf-var/fonts/pk/ljfour/jknappen/ec/e
+cbx1440.600pk> </home/keagan/.texlive2019/texmf-var/fonts/pk/ljfour/jknappen/ec
+/ecti1200.600pk> </home/keagan/.texlive2019/texmf-var/fonts/pk/ljfour/jknappen/
+ec/ecrm1200.600pk> </home/keagan/.texlive2019/texmf-var/fonts/pk/ljfour/jknappe
+n/ec/ecrm1728.600pk>
+Output written on stroopFinalReport_363.pdf (16 pages, 201626 bytes).
 PDF statistics:
- 397 PDF objects out of 1000 (max. 8388607)
- 112 compressed objects within 2 object streams
- 21 named destinations out of 1000 (max. 500000)
- 89 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 487 PDF objects out of 1000 (max. 8388607)
+ 140 compressed objects within 2 object streams
+ 28 named destinations out of 1000 (max. 500000)
+ 92 words of extra memory for PDF output out of 10000 (max. 10000000)
 

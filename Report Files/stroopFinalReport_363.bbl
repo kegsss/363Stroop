@@ -1,8 +1,17 @@
 \begin{thebibliography}{1}
 
-\bibitem{britt}
-Britt Anderson.
-\newblock There is no such thing as attention.
-\newblock {\em Frontiers in Psychology}, 2:246, 2011.
+\bibitem{Mermet2020Faib}
+Alodie Rey-Mermet.
+\newblock Finding an interaction between stroop congruency and flanker
+  congruency requires a large congruency effect: A within-trial combination of
+  conflict tasks.
+\newblock {\em Attention, perception & psychophysics}, 82(5):2271--2301, 2020.
+
+\bibitem{SpinelliGiacomo2020WMLD}
+Giacomo Spinelli, Kesheni Krishna, Jason~R Perry, and Stephen~J Lupker.
+\newblock Working memory load dissociates contingency learning and
+  item-specific proportion-congruent effects.
+\newblock {\em Journal of experimental psychology. Learning, memory, and
+  cognition}, 46(11):2007--2033, 2020.
 
 \end{thebibliography}
