@@ -1,0 +1,150 @@
+*Stroop Graph*
+
+* R 
+
+#+BEGIN_SRC R :session *363 Stroop* :exports both :results graphics :file "barplot_stroop.png"
+library(ggplot2)
+
+data <- read.csv("/home/xubuntu/Documents/363Stroop/363Stroop_Data_Dec_4.csv")
+
+incongruent <- data[which(data$Congruent == 0),]$Time
+congruent <- data[which(data$Congruent == 1),]$Time
+df <- data.frame(cond = c("Incongruent", "Congruent"), rt = c(mean(incongruent), mean(congruent)))
+
+p <- ggplot(df, aes(x = cond, y = rt, fill = cond)) + geom_bar(stat = "identity", width = 0.5) + labs(title = "Condition on Reaction Time", x = "Condition", y = "Reaction Time (s)") + theme(legend.position = "right") + theme_minimal()
+p
+#+END_SRC
+
+#+RESULTS:
+[[file:barplot_stroop.png]]
+
+* Python
+** Data
+#+BEGIN_SRC python :session *363 Stroop* :exports both
+import matplotlib.pyplot as plt
+import pandas as pd
+import numpy as np
+import seaborn as sns
+from ggplot import *
+
+filename = "363Stroop_Data_Dec_4.csv"
+data = pd.read_csv(filename)
+congruent = data[data["Congruent"].isin([1])]
+incongruent = data[data["Congruent"].isin([0])]
+
+Lcongruent = []
+counter = 1
+while len(Lcongruent) < 20:
+  T = data[data["Trial"].isin([counter])][data["Congruent"].isin([1])]["Time"]
+  L = []
+  for i in T:
+    L.append(i)
+  Lcongruent.append(L)
+  counter += 1
+
+Lincongruent = []
+counter = 1
+while len(Lincongruent) < 20:
+  T = data[data["Trial"].isin([counter])][data["Congruent"].isin([0])]["Time"]
+  L = []
+  for i in T:
+    L.append(i)
+  Lincongruent.append(L)
+  counter += 1
+
+congruent_mean = list(map(lambda x: np.mean(Lcongruent[x]), range(len(Lcongruent))))
+
+incongruent_mean = list(map(lambda x: np.mean(Lincongruent[x]), range(len(Lincongruent))))
+
+d = {"Congruent": congruent_mean, "Incongruent": incongruent_mean}
+df = pd.DataFrame(d)
+#+END_SRC
+
+#+RESULTS:
+
+** Bar Plot
+#+BEGIN_SRC python :session *363 Stroop* :exports both :results file
+overall = {"Congruent": np.mean(congruent["Time"]), "Incongruent": np.mean(incongruent["Time"])}
+
+fig, ax = plt.subplots()
+x = list(overall.keys())
+y = list(overall.values())
+plt.bar(x, y, width = 0.5, color = "c")
+plt.title("Condition on Reaction Time")
+plt.xlabel("Condition")
+plt.ylabel("Reaction Time (s)")
+plt.savefig("barplot_stroop_py.png")
+"barplot_stroop_py.png"
+#+END_SRC
+
+#+RESULTS:
+[[file:barplot_stroop_py.png]]
+
+** Reaction Time for Each Condition
+*** Congruent Condition
+#+BEGIN_SRC python :session *363 Stroop* :exports both :results file
+plt.figure()
+sns.distplot(df["Congruent"])
+plt.title("Response Time for Congruent Words")
+plt.xlabel("Reaction Time (s)")
+plt.ylabel("Frequency")
+plt.savefig("RT_congruent_py.png")
+"RT_congruent_py.png"
+#+END_SRC
+
+#+RESULTS:
+[[file:RT_congruent_py.png]]
+
+*** Incongruent Condition
+#+BEGIN_SRC python :session *363 Stroop* :exports both :results file
+plt.figure()
+sns.distplot(df["Incongruent"])
+plt.title("Response Time for Incongruent Words")
+plt.xlabel("Reaction Time (s)")
+plt.ylabel("Frequency")
+plt.savefig("RT_incongruent_py.png")
+"RT_incongruent_py.png"
+#+END_SRC
+
+#+RESULTS:
+[[file:RT_incongruent_py.png]]
+
+*** Both Conditions
+#+BEGIN_SRC python :session *363 Stroop* :exports both :results file
+plt.figure()
+sns.distplot(df["Congruent"], label = "Congruent")
+sns.distplot(df["Incongruent"], label = "Incongruent")
+plt.title("Response Time for Congruent vs. Incongruent Words")
+plt.xlabel("Reaction Time (s)")
+plt.ylabel("Frequency")
+plt.legend()
+plt.savefig("RT_congruent_v_incongruent_py.png")
+"RT_congruent_v_incongruent_py.png"
+#+END_SRC
+
+#+RESULTS:
+[[file:RT_congruent_v_incongruent_py.png]]
+
+** Density Plot
+#+BEGIN_SRC python :session *363 Stroop* :exports both :results file
+df["Interference"] = df["Incongruent"] - df["Congruent"]
+long_df = pd.melt(df, id_vars = "Interference", value_vars = ["Congruent", "Incongruent"], var_name = "Condition", value_name = "Response Time (s)")
+
+time_density = ggplot(long_df, aes(x = "Response Time (s)", color = "Condition")) + ggtitle("Density Plots of Response Times") + xlab("Response Time (s)") + ylab ("Number of Observers") + geom_density()
+time_density.save("time_density_stroop_py.png")
+"time_density_stroop_py.png"
+#+END_SRC
+
+#+RESULTS:
+[[file:time_density_stroop_py.png]]
+
+** Interference Histogram
+#+BEGIN_SRC python :session *363 Stroop* :exports both :results file
+new_longdf = long_df[long_df.Condition == "Congruent"]
+interference_hist = ggplot(new_longdf, aes(x = "Interference")) + ggtitle("Histogram of Interference") + xlab("Increase in Response Time (s)") + ylab("Number of Observers") + geom_histogram(binwidth = 0.05, color = "white", fill = "c")
+interference_hist.save("interference_hist_stroop_py.png")
+"interference_hist_stroop_py.png"
+#+END_SRC
+
+#+RESULTS:
+[[file:interference_hist_stroop_py.png]]
