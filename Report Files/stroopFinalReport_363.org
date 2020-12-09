@@ -122,9 +122,10 @@ Number of rows:
 
 #+begin_src R :session *analysis* :exports both :results output
 
-rng <- nrow(dt)
+nrow(dt)
 
 #+end_src
+
 
 Linear regression model:
 
