@@ -1,4 +1,4 @@
-% Created 2020-12-09 Wed 01:13
+% Created 2020-12-09 Wed 10:51
 % Intended LaTeX compiler: pdflatex
 \documentclass{article}
 \usepackage[utf8]{inputenc}
@@ -34,14 +34,14 @@
 
 
 \section{Introduction}
-\label{sec:org7848e21}
+\label{sec:org2e900d5}
 
 \hspace{1em} Previous studies in the Stroop literature have demonstrated that participants might respond differently based on if Stroop items are congruent with their displayed state and some have found evidence of congruency effects \cite{SpinelliGiacomo2020WMLD}. For example, words that are presented in the same colour that the word is describing (i.e. the word "Red" presented in the colour red) would be known as a congruent trial, whereas words presented in a different colour (i.e. "Red, but presented in the colour blue) would be an incongruent trial.\\
 
 Rey-Mermet discusses the idea of attentional-control processes, namely, our ability to ``activate goal-relevant information and to inhibit irrelevant information'' \cite{Mermet2020Faib}. Our study approaches this idea and seeks to understand if reaction time differences arise when comparing congruent to incongruent trials. A participants goal is to correctly report words that are congruent, while inhibiting the irrelevant information presented during incongruent trials and we hypothesize that ones reaction time should differ as a function of the extended cognitive process one must engage in to correctly make this rejection. 
 
 \section{Methods}
-\label{sec:org9dd6d21}
+\label{sec:orgff7fd52}
 
 \hspace{1em} \textbf{Participants.} We utilized our 4 group members, and each completed 20 trials 5 times yielding 100 total trials per person. This gave us enough data to be confident in our results, although with such a small sample size of participants it is clear that these results will struggle to generalize to the broader population more broadly. \\
 
@@ -107,7 +107,7 @@ core.wait(1)
 core.quit()
 \end{verbatim}
 \section{Results}
-\label{sec:orgaff4be9}
+\label{sec:org87222ac}
 
 Data structure:
 
@@ -291,19 +291,19 @@ Residuals 393 91.662 0.23324
 \end{verbatim}
 
 \section{Discussion}
-\label{sec:org48c22b6}
+\label{sec:orgd10796d}
 test discussion text stuff
 
 \section{References}
-\label{sec:org4619302}
+\label{sec:orge331b19}
 
 \bibliography{stroopBib.bib}
 
 \section{Testing Plots here\ldots{}..}
-\label{sec:org5b1593d}
+\label{sec:org0f20991}
 
 \subsection{All Of the available plots below\ldots{}}
-\label{sec:org7bc2d5f}
+\label{sec:orgcb0be49}
 
 \begin{verbatim}
 
@@ -360,6 +360,17 @@ congruent_mean <- mean(data[which(data$Congruent == 1),]$Time)
 overall <- data.frame(cond = c("Incongruent", "Congruent"), rt = c(incongruent_mean, congruent_mean))
 
 \end{verbatim}
+
+\begin{center}
+\begin{tabular}{lr}
+Incongruent & 0.915385980111821\\
+Congruent & 0.843044126528736\\
+\end{tabular}
+\end{center}
+
+
+
+
 
 \begin{verbatim}
 
