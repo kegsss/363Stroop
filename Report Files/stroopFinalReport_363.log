@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2020.11.4)  9 DEC 2020 10:52
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2020.11.4)  9 DEC 2020 14:53
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -497,138 +497,131 @@ you're probably due for more error messages, and you
 might try typing `S' now just to see what is salvageable.
 
 [5])
-<barplot_stroop.png, id=72, 481.8pt x 481.8pt>
-File: barplot_stroop.png Graphic file (type png)
-<use barplot_stroop.png>
-Package pdftex.def Info: barplot_stroop.png  used on input line 327.
-(pdftex.def)             Requested size: 422.77664pt x 422.78697pt.
- [6] [7 <./barplot_stroop.png>]
-Overfull \hbox (144.34502pt too wide) in paragraph at lines 362--362
+Overfull \hbox (144.34502pt too wide) in paragraph at lines 339--339
 []\T1/cmtt/m/n/10 cond_rt_df <- data.frame(Condition = rep(c("Congruent", "Inco
 ngruent"), each = 20), RT = c(Lcongruent, Lincongruent))[] 
  []
 
 
-Overfull \hbox (60.36552pt too wide) in paragraph at lines 362--362
+Overfull \hbox (60.36552pt too wide) in paragraph at lines 339--339
 []\T1/cmtt/m/n/10 overall <- data.frame(cond = c("Incongruent", "Congruent"), r
 t = c(incongruent_mean, congruent_mean))[] 
  []
 
 
-Overfull \hbox (2296.3195pt too wide) in paragraph at lines 381--381
-[]\T1/cmtt/m/n/10 p <- ggplot(overall, aes(x = cond, y = rt, fill = cond)) + ge
-om_bar(stat = "identity", width = 0.5) + labs(title = "Mean Reaction Time", x =
- "Condition", y = "Reaction Time (s)") + theme_classic() + theme(plot.title = e
-lement_text(hjust = 0.5, size = 15, face = "bold"), legend.position = "right", 
-legend.background = element_blank(), legend.box.background = element_rect(colou
-r = "black"), panel.background = element_blank(), panel.grid = element_blank(),
- panel.border = element_rect(colour = "black", fill = NA, size = 0.75))[] 
+Overfull \hbox (1755.70152pt too wide) in paragraph at lines 355--355
+[]\T1/cmtt/m/n/10 p <- ggplot(overall, aes(x = cond, y = rt)) + geom_bar(fill =
+ "darkturquoise", stat = "identity", width = 0.5) + labs(title = "Mean Reaction
+ Time", x = "Condition", y = "Reaction Time (seconds)") + theme_classic() + the
+me(plot.title = element_text(hjust = 0.5, size = 15, face = "bold"), panel.back
+ground = element_blank(), panel.grid = element_blank(), panel.border = element_
+rect(colour = "black", fill = NA, size = 0.75))[] 
  []
 
-<converted_stroop2.png, id=86, 481.8pt x 481.8pt>
+<converted_stroop2.png, id=72, 481.8pt x 481.8pt>
 File: converted_stroop2.png Graphic file (type png)
 <use converted_stroop2.png>
-Package pdftex.def Info: converted_stroop2.png  used on input line 384.
+Package pdftex.def Info: converted_stroop2.png  used on input line 358.
 (pdftex.def)             Requested size: 422.77664pt x 422.78697pt.
-[8]
-Overfull \hbox (2506.26823pt too wide) in paragraph at lines 395--395
+[6]
+Overfull \hbox (2537.76054pt too wide) in paragraph at lines 369--369
 []\T1/cmtt/m/n/10 density_plot <- ggplot(cond_rt_df, aes(x = RT, color = Condit
 ion, fill = Condition)) + geom_density(alpha = 0.5) + labs(title = "Response Ti
-me Density Plot", x = "Response Time (s)", y = "Frequency") + theme_classic() +
- theme(plot.title = element_text(hjust = 0.5, size = 15, face = "bold"), legend
-.position = "right", legend.background = element_blank(), legend.box.background
- = element_rect(colour = "black"), panel.background = element_blank(), panel.gr
-id = element_blank(), panel.border = element_rect(colour = "black", fill = NA, 
-size = 0.75)) + xlim(0.25, 1.75)[] 
+me Density Plot", x = "Response Time (seconds)", y = "Frequency") + theme_class
+ic() + theme(plot.title = element_text(hjust = 0.5, size = 15, face = "bold"), 
+legend.position = "right", legend.background = element_blank(), legend.box.back
+ground = element_rect(colour = "black"), panel.background = element_blank(), pa
+nel.grid = element_blank(), panel.border = element_rect(colour = "black", fill 
+= NA, size = 0.75)) + xlim(0.25, 1.75)[] 
  []
 
-<converted_stroop3.png, id=91, 481.8pt x 481.8pt>
+<converted_stroop3.png, id=80, 481.8pt x 481.8pt>
 File: converted_stroop3.png Graphic file (type png)
 <use converted_stroop3.png>
-Package pdftex.def Info: converted_stroop3.png  used on input line 398.
+Package pdftex.def Info: converted_stroop3.png  used on input line 372.
 (pdftex.def)             Requested size: 422.77664pt x 422.78697pt.
-[9 <./converted_stroop2.png>]
-Overfull \hbox (1960.40154pt too wide) in paragraph at lines 409--409
+[7 <./converted_stroop2.png>]
+Overfull \hbox (1991.89384pt too wide) in paragraph at lines 383--383
 []\T1/cmtt/m/n/10 interference_hist <- ggplot(df, aes(x = Interference)) + geom
 _histogram(binwidth = 0.05, color = "white", fill = "darkturquoise") + labs(tit
-le = "Interference Histogram", x = "Increase in Response Time (s)", y = "Number
- of Observers") + theme_classic() + theme(plot.title = element_text(hjust = 0.5
-, size = 15, face = "bold"), panel.background = element_blank(), panel.grid = e
-lement_blank(), panel.border = element_rect(colour = "black", fill = NA, size =
- 0.75))[] 
+le = "Interference Histogram", x = "Increase in Response Time (seconds)", y = "
+Number of Observers") + theme_classic() + theme(plot.title = element_text(hjust
+ = 0.5, size = 15, face = "bold"), panel.background = element_blank(), panel.gr
+id = element_blank(), panel.border = element_rect(colour = "black", fill = NA, 
+size = 0.75))[] 
  []
 
-<converted_stroop4.png, id=97, 481.8pt x 481.8pt>
+<converted_stroop4.png, id=87, 481.8pt x 481.8pt>
 File: converted_stroop4.png Graphic file (type png)
 <use converted_stroop4.png>
-Package pdftex.def Info: converted_stroop4.png  used on input line 412.
+Package pdftex.def Info: converted_stroop4.png  used on input line 386.
 (pdftex.def)             Requested size: 422.77664pt x 422.78697pt.
-[10 <./converted_stroop3.png (PNG copy)>]
-Overfull \hbox (2086.37077pt too wide) in paragraph at lines 424--424
+[8 <./converted_stroop3.png (PNG copy)>]
+Overfull \hbox (2018.13744pt too wide) in paragraph at lines 397--397
 []\T1/cmtt/m/n/10 RT_congruent <- ggplot(df, aes(x = Congruent)) + geom_histogr
-am(alpha = 0.5, fill = "steelblue") + geom_density(color = "steelblue") + labs(
-title = "Response Time for Congruent Words", x = "Response Time (s)", y = "Freq
-uency") + theme_classic() + theme(plot.title = element_text(hjust = 0.5, size =
- 15, face = "bold"), panel.background = element_blank(), panel.grid = element_b
-lank(), panel.border = element_rect(colour = "black", fill = NA, size = 0.75)) 
-+ xlim(0.25, 1.75) + ylim(0, 5)[] 
+am(alpha = 0.5, fill = "steelblue", color = "white") + labs(title = "Response T
+ime for Congruent Words", x = "Response Time (seconds)", y = "Frequency") + the
+me_classic() + theme(plot.title = element_text(hjust = 0.5, size = 15, face = "
+bold"), panel.background = element_blank(), panel.grid = element_blank(), panel
+.border = element_rect(colour = "black", fill = NA, size = 0.75)) + xlim(0.25, 
+1.75) + ylim(0, 5)[] 
  []
 
-<converted_stroop5.png, id=102, 481.8pt x 481.8pt>
+<converted_stroop5.png, id=92, 481.8pt x 481.8pt>
 File: converted_stroop5.png Graphic file (type png)
 <use converted_stroop5.png>
-Package pdftex.def Info: converted_stroop5.png  used on input line 427.
+Package pdftex.def Info: converted_stroop5.png  used on input line 400.
 (pdftex.def)             Requested size: 422.77664pt x 422.78697pt.
-[11 <./converted_stroop4.png (PNG copy)>]
-Overfull \hbox (2117.86308pt too wide) in paragraph at lines 439--439
+[9 <./converted_stroop4.png (PNG copy)>]
+Overfull \hbox (2049.62975pt too wide) in paragraph at lines 411--411
 []\T1/cmtt/m/n/10 RT_incongruent <- ggplot(df, aes(x = Incongruent)) + geom_his
-togram(alpha = 0.5, fill = "steelblue") + geom_density(color = "steelblue") + l
-abs(title = "Response Time for Incongruent Words", x = "Response Time (s)", y =
- "Frequency") + theme_classic() + theme(plot.title = element_text(hjust = 0.5, 
-size = 15, face = "bold"), panel.background = element_blank(), panel.grid = ele
-ment_blank(), panel.border = element_rect(colour = "black", fill = NA, size = 0
-.75)) + xlim(0.25, 1.75) + ylim(0, 5)[] 
+togram(alpha = 0.5, fill = "steelblue", color = "white") + labs(title = "Respon
+se Time for Incongruent Words", x = "Response Time (seconds)", y = "Frequency")
+ + theme_classic() + theme(plot.title = element_text(hjust = 0.5, size = 15, fa
+ce = "bold"), panel.background = element_blank(), panel.grid = element_blank(),
+ panel.border = element_rect(colour = "black", fill = NA, size = 0.75)) + xlim(
+0.25, 1.75) + ylim(0, 5)[] 
  []
 
-<converted_stroop6.png, id=107, 481.8pt x 481.8pt>
+<converted_stroop6.png, id=97, 481.8pt x 481.8pt>
 File: converted_stroop6.png Graphic file (type png)
 <use converted_stroop6.png>
-Package pdftex.def Info: converted_stroop6.png  used on input line 442.
+Package pdftex.def Info: converted_stroop6.png  used on input line 414.
 (pdftex.def)             Requested size: 422.77664pt x 422.78697pt.
-[12 <./converted_stroop5.png (PNG copy)>]
-Overfull \hbox (2999.64775pt too wide) in paragraph at lines 453--453
+[10 <./converted_stroop5.png (PNG copy)>]
+Overfull \hbox (3031.14006pt too wide) in paragraph at lines 425--425
 []\T1/cmtt/m/n/10 RT_cond <- ggplot(cond_rt_df, aes(x = RT, color = Condition, 
 fill = Condition)) + geom_histogram(color = NA, alpha = 0.5, position = "identi
 ty") + geom_density(alpha = 0) + labs(title = "Response Time for Congruent vs. 
-Incongruent Words", x = "Response Time (s)", y = "Frequency") + theme_classic()
- + theme(plot.title = element_text(hjust = 0.5, size = 15, face = "bold"), lege
-nd.position = "right", legend.background = element_blank(), legend.box.backgrou
-nd = element_rect(colour = "black"), panel.background = element_blank(), panel.
-grid = element_blank(), panel.border = element_rect(colour = "black", fill = NA
-, size = 0.75)) + xlim(0.25, 1.75) + ylim(0, 5)[] 
+Incongruent Words", x = "Response Time (seconds)", y = "Frequency") + theme_cla
+ssic() + theme(plot.title = element_text(hjust = 0.5, size = 15, face = "bold")
+, legend.position = "right", legend.background = element_blank(), legend.box.ba
+ckground = element_rect(colour = "black"), panel.background = element_blank(), 
+panel.grid = element_blank(), panel.border = element_rect(colour = "black", fil
+l = NA, size = 0.75)) + xlim(0.25, 1.75) + ylim(0, 5)[] 
  []
 
-<converted_stroop7.png, id=112, 481.8pt x 481.8pt>
+<converted_stroop7.png, id=102, 481.8pt x 481.8pt>
 File: converted_stroop7.png Graphic file (type png)
 <use converted_stroop7.png>
-Package pdftex.def Info: converted_stroop7.png  used on input line 456.
+Package pdftex.def Info: converted_stroop7.png  used on input line 428.
 (pdftex.def)             Requested size: 422.77664pt x 422.78697pt.
-[13 <./converted_stroop6.png (PNG copy)>]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 458.
- [14 <./converted_stroop7.png (PNG copy)>]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 458.
+[11 <./converted_stroop6.png (PNG copy)>]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 430.
+ [12 <./converted_stroop7.png (PNG copy)>]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 430.
  (./stroopFinalReport_363.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 458.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 458.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 430.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 430.
 Package rerunfilecheck Info: File `stroopFinalReport_363.out' has not changed.
 (rerunfilecheck)             Checksum: ADF5DD21A6274FF41DE11E53CADD207A;365.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 458.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 430.
  ) 
 Here is how much of TeX's memory you used:
- 7446 strings out of 483183
- 108064 string characters out of 5966292
+ 7438 strings out of 483183
+ 107923 string characters out of 5966292
  369671 words of memory out of 5000000
- 22266 multiletter control sequences out of 15000+600000
+ 22261 multiletter control sequences out of 15000+600000
  545861 words of font info for 61 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  34i,6n,34p,1158b,453s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -642,10 +635,10 @@ cbx1440.600pk> </home/keagan/.texlive2019/texmf-var/fonts/pk/ljfour/jknappen/ec
 /ecti1200.600pk> </home/keagan/.texlive2019/texmf-var/fonts/pk/ljfour/jknappen/
 ec/ecrm1200.600pk> </home/keagan/.texlive2019/texmf-var/fonts/pk/ljfour/jknappe
 n/ec/ecrm1728.600pk>
-Output written on stroopFinalReport_363.pdf (14 pages, 200195 bytes).
+Output written on stroopFinalReport_363.pdf (12 pages, 184307 bytes).
 PDF statistics:
- 479 PDF objects out of 1000 (max. 8388607)
- 134 compressed objects within 2 object streams
- 26 named destinations out of 1000 (max. 500000)
- 92 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 467 PDF objects out of 1000 (max. 8388607)
+ 126 compressed objects within 2 object streams
+ 24 named destinations out of 1000 (max. 500000)
+ 87 words of extra memory for PDF output out of 10000 (max. 10000000)
 
