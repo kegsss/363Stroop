@@ -99,264 +99,76 @@ core.quit()
 #+RESULTS:
 * Results
 
+Data structure:
 
+#+begin_src R :session *analysis* :exports both :results output
 
-#+begin_src R :session *testR* :exports both :results output
-
-##library(tidyverse)
-dtben <- read.csv("/home/keagan/GitRepos/363Stroop/363Stroop_Data_Dec_4.csv")
-
-
-###
-###
-###
-
+dt <- read.csv("363Stroop_Data_Dec_4.csv")
 
 ## An example of how our data is structured
-head(dtben, 10)
-
-## A quick summary of the meaningful means and quartiles of each variable
-summary(dtben)
-
-## The total number of trials
-rng <- max(dtben$Time.Length) - min(dtben$Time.Length)
-rng
-
-
-###
-###
-###
-
-
-## Creating a linear regression between time and congruence
-attach(dtben)
-lmben <- lm( Time ~ Congruent, data = dtben)
-
-lmben
-
-## Summary of the linear regression including T-Tests
-summary(lmben)
-
-## Specialized T-Test
-t.test(Time ~ Congruent, mu=0, alt="two.sided", conf=0.95, var.eq=F, paired=F, data = dtben)
-
-## Analysis of Varience including F-Tests
-anova(lmben)
-
-
-###
-###
-###
-
-
-## Creating a linear regression between time and each of the other variables
-attach(dtben)
-lmben2 <- lm( Time ~ Congruent + Trial + Colour + Response, data = dtben)
-
-lmben2
-
-## Summary of the linear regression including T-Tests
-summary(lmben2)
-
-## Analysis of Varience including F-Tests
-anova(lmben2)
-
+head(dt, 10)
 
 #+end_src
 
-#+RESULTS:
-#+begin_example
-   Trial Congruent Colour Response      Time
-1      1         1   blue        z 1.0113984
-2      1         0   blue    slash 0.9906640
-3      1         0    red    slash 0.7729855
-4      1         0  green    slash 0.7496739
-5      1         0  green    slash 0.6566195
-6      1         1 yellow        z 0.5783305
-7      1         0  green    slash 1.0228071
-8      1         0  green    slash 1.3865062
-9      1         0 yellow    slash 0.7888217
-10     1         0   blue    slash 0.9663929
-     Trial         Congruent         Colour     Response        Time       
- Min.   : 1.00   Min.   :0.0000   blue  :110   slash:312   Min.   :0.2039  
- 1st Qu.: 5.75   1st Qu.:0.0000   green : 82   z    : 88   1st Qu.:0.6608  
- Median :10.50   Median :0.0000   red   :102               Median :0.7536  
- Mean   :10.50   Mean   :0.2175   yellow:106               Mean   :0.8997  
- 3rd Qu.:15.25   3rd Qu.:0.0000                            3rd Qu.:0.9482  
- Max.   :20.00   Max.   :1.0000                            Max.   :4.5227
-Warning messages:
-1: In max(dtben$Time.Length) :
-  no non-missing arguments to max; returning -Inf
-2: In min(dtben$Time.Length) :
-  no non-missing arguments to min; returning Inf
-[1] -Inf
-The following objects are masked from dtben (pos = 3):
+Statistical summary of the data:
 
-    Colour, Congruent, Response, Time, Trial
+#+begin_src R :session *analysis* :exports both :results output
 
-The following objects are masked from dtben (pos = 4):
+summary(dt)
 
-    Colour, Congruent, Response, Time, Trial
+#+end_src
 
-The following objects are masked from dtben (pos = 5):
+Number of rows:
 
-    Colour, Congruent, Response, Time, Trial
+#+begin_src R :session *analysis* :exports both :results output
 
-The following objects are masked from dtben (pos = 6):
+nrow(dt)
 
-    Colour, Congruent, Response, Time, Trial
+#+end_src
 
-The following objects are masked from dtben (pos = 7):
 
-    Colour, Congruent, Response, Time, Trial
+Linear regression model:
 
-The following objects are masked from dtben (pos = 8):
+#+begin_src R :session *analysis* :exports both :results output
 
-    Colour, Congruent, Response, Time, Trial
+lmresults <- lm( Time ~ Congruent, data = dt)
+summary(lmresults)
 
-The following objects are masked from dtben (pos = 9):
+#+end_src
 
-    Colour, Congruent, Response, Time, Trial
+Specialised T-test:
 
-The following objects are masked from dtben (pos = 10):
+#+begin_src R :session *analysis* :exports both :results output
 
-    Colour, Congruent, Response, Time, Trial
+t.test(Time ~ Congruent, mu=0, alt="two.sided", conf=0.95, var.eq=F, paired=F, data = dt)
 
-The following objects are masked from dtben (pos = 11):
+#+end_src
 
-    Colour, Congruent, Response, Time, Trial
+One way ANOVA:
 
-The following objects are masked from dtben (pos = 12):
+#+begin_src R :session *analysis* :exports both :results output
 
-    Colour, Congruent, Response, Time, Trial
+anova(lmresults)
 
-Call:
-lm(formula = Time ~ Congruent, data = dtben)
+#+end_src
 
-Coefficients:
-(Intercept)    Congruent  
-    0.91539     -0.07234
+More linear regression:
 
-Call:
-lm(formula = Time ~ Congruent, data = dtben)
+#+begin_src R :session *analysis* :exports both :results output
 
-Residuals:
-    Min      1Q  Median      3Q     Max 
--0.7115 -0.2423 -0.1421  0.0377  3.6073 
+lmresults2 <- lm( Time ~ Congruent + Trial + Colour + Response, data = dt)
 
-Coefficients:
-            Estimate Std. Error t value Pr(>|t|)    
-(Intercept)  0.91539    0.02736  33.456   <2e-16 ***
-Congruent   -0.07234    0.05867  -1.233    0.218    
----
-Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+summary(lmresults2)
 
-Residual standard error: 0.4841 on 398 degrees of freedom
-Multiple R-squared:  0.003806,	Adjusted R-squared:  0.001303 
-F-statistic:  1.52 on 1 and 398 DF,  p-value: 0.2183
+#+end_src
 
-	Welch Two Sample t-test
+One way ANOVA:
 
-data:  Time by Congruent
-t = 1.6466, df = 241.61, p-value = 0.1009
-alternative hypothesis: true difference in means is not equal to 0
-95 percent confidence interval:
- -0.01420303  0.15888674
-sample estimates:
-mean in group 0 mean in group 1 
-      0.9153860       0.8430441
-Analysis of Variance Table
+#+begin_src R :session *analysis* :exports both :results output
 
-Response: Time
-           Df Sum Sq Mean Sq F value Pr(>F)
-Congruent   1  0.356 0.35627  1.5205 0.2183
-Residuals 398 93.258 0.23432
-The following objects are masked from dtben (pos = 3):
+anova(lmresults2)
 
-    Colour, Congruent, Response, Time, Trial
-
-The following objects are masked from dtben (pos = 4):
-
-    Colour, Congruent, Response, Time, Trial
-
-The following objects are masked from dtben (pos = 5):
-
-    Colour, Congruent, Response, Time, Trial
-
-The following objects are masked from dtben (pos = 6):
-
-    Colour, Congruent, Response, Time, Trial
-
-The following objects are masked from dtben (pos = 7):
-
-    Colour, Congruent, Response, Time, Trial
-
-The following objects are masked from dtben (pos = 8):
-
-    Colour, Congruent, Response, Time, Trial
-
-The following objects are masked from dtben (pos = 9):
-
-    Colour, Congruent, Response, Time, Trial
-
-The following objects are masked from dtben (pos = 10):
-
-    Colour, Congruent, Response, Time, Trial
-
-The following objects are masked from dtben (pos = 11):
-
-    Colour, Congruent, Response, Time, Trial
-
-The following objects are masked from dtben (pos = 12):
-
-    Colour, Congruent, Response, Time, Trial
-
-The following objects are masked from dtben (pos = 13):
-
-    Colour, Congruent, Response, Time, Trial
-
-Call:
-lm(formula = Time ~ Congruent + Trial + Colour + Response, data = dtben)
-
-Coefficients:
- (Intercept)     Congruent         Trial   Colourgreen     Colourred  
-    0.985707      0.727180     -0.006801      0.065221     -0.045419  
-Colouryellow     Responsez  
-    0.004813     -0.799422
-
-Call:
-lm(formula = Time ~ Congruent + Trial + Colour + Response, data = dtben)
-
-Residuals:
-    Min      1Q  Median      3Q     Max 
--0.5683 -0.2452 -0.1264  0.0476  3.5778 
-
-Coefficients:
-              Estimate Std. Error t value Pr(>|t|)    
-(Intercept)   0.985707   0.067434  14.617   <2e-16 ***
-Congruent     0.727180   0.488648   1.488    0.138    
-Trial        -0.006801   0.004213  -1.614    0.107    
-Colourgreen   0.065221   0.070966   0.919    0.359    
-Colourred    -0.045419   0.066993  -0.678    0.498    
-Colouryellow  0.004813   0.065793   0.073    0.942    
-Responsez    -0.799422   0.486281  -1.644    0.101    
----
-Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
-
-Residual standard error: 0.4829 on 393 degrees of freedom
-Multiple R-squared:  0.02085,	Adjusted R-squared:  0.005901 
-F-statistic: 1.395 on 6 and 393 DF,  p-value: 0.2154
-Analysis of Variance Table
-
-Response: Time
-           Df Sum Sq Mean Sq F value Pr(>F)
-Congruent   1  0.356 0.35627  1.5275 0.2172
-Trial       1  0.505 0.50535  2.1667 0.1418
-Colour      3  0.460 0.15330  0.6573 0.5788
-Response    1  0.630 0.63034  2.7026 0.1010
-Residuals 393 91.662 0.23324
-#+end_example
-
+#+end_src
 
 * Discussion
 test discussion text stuff
@@ -373,7 +185,7 @@ test discussion text stuff
 
 library(ggplot2)
 
-data <- read.csv("/home/keagan/GitRepos/363Stroop/363Stroop_Data_Dec_4.csv")
+data <- read.csv("363Stroop_Data_Dec_4.csv")
 
 incongruent <- data[which(data$Congruent == 0),]$Time
 congruent <- data[which(data$Congruent == 1),]$Time
@@ -394,7 +206,7 @@ p
 #+BEGIN_SRC R :session *363 Stroop* :exports both
 library(ggplot2)
 
-data <- read.csv("/home/keagan/GitRepos/363Stroop/363Stroop_Data_Dec_4.csv")
+data <- read.csv("363Stroop_Data_Dec_4.csv")
 
 Lincongruent <- c()
 counter = 1
