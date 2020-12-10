@@ -35,9 +35,9 @@ Rey-Mermet discusses the idea of attentional-control processes, namely, our abil
 
 @@latex:\hspace{1em}@@ *Participants.* We utilized our 4 group members, and each completed 20 trials 5 times yielding 100 total trials per person. This gave us enough data to be confident in our results, although with such a small sample size of participants it is clear that these results will struggle to generalize to the broader population more broadly. \\
 
-*Materials.* A program was developed for use in our experiement to randomly choose different colour words (i.e. red, blue, green, etc) and an associated colour that the words were written in. The words are presented on a plain solid grey background and participants were instructed to either press "z" or "/" on a keyboard to indicate whether the word and its associated colour were congruent (i.e. the written word matched the colour of the word) or incongruent (i.e. the written word did not match the colour of the word). After each user response a new word would be randomly generated for them to respond to and once the participant completes 20 trials, the program closes itself, the data is exported and procedure ends. Importantly, the colour and word displayed were all randomly selected, and each value available within the program have an equal probaibility of being selected. We chose not to present the participant with a specific number of congruent/incongruent trials to ensure that they could not try to predict/learn what to expect next and maintain complete randomness. \\
+*Materials.* A program was developed for use in our experiement to randomly choose different colour words (i.e. red, blue, green, etc) and an associated colour that the words were written in. The words are presented on a plain solid grey background and participants were instructed to either press "z" or "/" on a keyboard to indicate whether the word and its associated colour were congruent (i.e. the written word matched the colour of the word) or incongruent (i.e. the written word did not match the colour of the word). After each user response a new word would be randomly generated for them to respond to and once the participant completes 20 trials, the program closes itself, the data is exported and procedure ends. Importantly, the colour and word displayed were all randomly selected, the probability of a participant seeing a congruent trial was set at 25%. \\
 
-Please see below for a copy of the Python code used in designing the program:
+Please see below for a copy of the Python code used in designing the program: \\
 #+begin_src python :exports code
 from psychopy import visual,core,clock,event
 import random as r
@@ -58,7 +58,8 @@ RTclock=core.Clock()
 
 win=visual.Window(size=(600,600))
 
-instructionText="Press 'z' for congruent words & colours  and '/' when incongruent. Press any key to start."
+instructionText="Press 'z' for congruent words & colours  and '/' when incongruent. 
+Press any key to start."
 
 showInstruction=visual.TextStim(win,instructionText,color="black",height=0.1)
 showInstruction.draw()
@@ -99,89 +100,65 @@ core.quit()
 #+RESULTS:
 * Results
 
-Data structure:
-
 #+begin_src R :session *analysis* :exports both :results output
 
+## Read participant data file
 dt <- read.csv("363Stroop_Data_Dec_4.csv")
-
-## An example of how our data is structured
-head(dt, 10)
 
 #+end_src
 
-Statistical summary of the data:
+*Data structure:* This produces an example excerpt from our CSV file (up to 10 trials), there are 400 total across the entire experiment. As you can see, the data is automaticallly arranged based on if the trial is congruent or not (1 for congruent, 0 for incongruent), the presented colour, the participants response, and their reaction time.
+#+begin_src R :session *analysis* :exports both :results output
 
+## An example of how our data is structured
+head(dt, 10)
+#+end_src 
+
+@@latex:\vspace{2em}@@ *Statistical Summary of the Data:* This produces some basic descriptive statistics of our experiment. To note a few, there were 88 trials were participants hit the 'z' key (i.e. reported a congruent trial) and 312 instances where they hit the '/' key (i.e. reported an incongruent trial). The mean response time was 0.8997 seconds with the longest response taking 4.5227 seconds and the quickest response taking 0.2039 seconds. 
 #+begin_src R :session *analysis* :exports both :results output
 
 summary(dt)
 
 #+end_src
 
-Number of rows:
-
+*Number of rows/trials*: This displays the total number of rows in our data file, equivalent to the total number of trials within our experiment.
 #+begin_src R :session *analysis* :exports both :results output
-
 nrow(dt)
-
 #+end_src
 
 
-Linear regression model:
-
+@@latex:\vspace{2em}@@ *Linear Regression Model:* We completed many different statistical analyses on our data, the first being a linear regression. Our results show that <1% of the total variation in participant response times can be explained by our independent variable, congruency. 
 #+begin_src R :session *analysis* :exports both :results output
-
 lmresults <- lm( Time ~ Congruent, data = dt)
 summary(lmresults)
-
 #+end_src
 
-Specialised T-test:
-
+@@latex:\vspace{2em}@@ *Specialised T-test:* The second test we ran was a Welch Two Sample T-test and as we can see from our results that there is not enough evidence to suggest that reaction times are significantly different when presented congruent trials than when presented incongruent trials and we must retain the null hypothesis, t(241) = 1.646, p > .05.
 #+begin_src R :session *analysis* :exports both :results output
-
 t.test(Time ~ Congruent, mu=0, alt="two.sided", conf=0.95, var.eq=F, paired=F, data = dt)
-
 #+end_src
 
-One way ANOVA:
-
+@@latex:\vspace{11em}@@ *One-Way ANOVA:* The third test we ran was a One-Way Analysis of Variance and like the other tests our results do not provide sufficient evidence that reaction times differ significantly under different levels of congruency, F(1, 398) = 1.52, MSE = 0.35, p > .05.
 #+begin_src R :session *analysis* :exports both :results output
-
 anova(lmresults)
-
 #+end_src
 
-More linear regression:
-
+@@latex:\vspace{2em}@@ *More Linear Regression:* We decided to further explore the explanatory power between the other variables as well... this really isn't relevant, delete? explanatory power of trial #, response, and colour value? Marked for removal.
 #+begin_src R :session *analysis* :exports both :results output
-
 lmresults2 <- lm( Time ~ Congruent + Trial + Colour + Response, data = dt)
-
 summary(lmresults2)
-
 #+end_src
 
-One way ANOVA:
-
+@@latex:\vspace{2em}@@ *One-Way ANOVA (again? what is this for?):* ^^^ see more linear regression comment, same thing but an anova. Marked for removal, not relevant. 
 #+begin_src R :session *analysis* :exports both :results output
-
 anova(lmresults2)
-
 #+end_src
 
-* Discussion
-test text
-* References
+** Plots
+#+BEGIN_SRC R :session *363 Stroop* :exports none
 
-#+latex: \bibliography{stroopBib.bib}
+## Setup Code for Plots
 
-* Testing Plots here.....
-
-** All Of the available plots below...
-
-
-#+BEGIN_SRC R :session *363 Stroop* :exports both
 library(ggplot2)
 
 data <- read.csv("363Stroop_Data_Dec_4.csv")
@@ -218,23 +195,66 @@ overall <- data.frame(cond = c("Incongruent", "Congruent"), rt = c(incongruent_m
 | Incongruent | 0.915385980111821 |
 | Congruent   | 0.843044126528736 |
 
-
+*** Mean Reaction Time: Congruent vs Incongruent Trials
 #+BEGIN_SRC R :session *363 Stroop* :exports both :results graphics :file "converted_stroop2.png"
 
-p <- ggplot(overall, aes(x = cond, y = rt)) + geom_bar(fill = "darkturquoise", stat = "identity", width = 0.5) + labs(title = "Mean Reaction Time", x = "Condition", y = "Reaction Time (seconds)") + theme_classic() + theme(plot.title = element_text(hjust = 0.5, size = 15, face = "bold"), panel.background = element_blank(), panel.grid = element_blank(), panel.border = element_rect(colour = "black", fill = NA, size = 0.75))
+p <- ggplot(overall, aes(x = cond, y = rt)) + geom_bar(fill = "darkturquoise", stat = "identity", 
+width = 0.5) + labs(title = "Mean Reaction Time", x = "Condition", 
+y = "Reaction Time (seconds)") + theme_classic() + 
+theme(plot.title = element_text(hjust = 0.5, size = 15, face = "bold"), 
+panel.background = element_blank(), panel.grid = element_blank(), 
+panel.border = element_rect(colour = "black", fill = NA, size = 0.75))
 
 p
-
 #+END_SRC
 
 #+RESULTS:
 [[file:converted_stroop2.png]]
 
+*** RT Values for Congruent Trials
+#+BEGIN_SRC R :session *363 Stroop* :exports both :results graphics :file "converted_stroop5.png"
 
+RT_congruent <- ggplot(df, aes(x = Congruent)) + geom_histogram(alpha = 0.5, fill = "steelblue", 
+color = "white") + labs(title = "Response Time for Congruent Words", x = "Response Time (seconds)", 
+y = "Frequency") + theme_classic() + theme(plot.title = element_text(hjust = 0.5, size = 15, 
+face = "bold"), panel.background = element_blank(), panel.grid = element_blank(), 
+panel.border = element_rect(colour = "black", 
+fill = NA, size = 0.75)) + xlim(0.25, 1.75) + ylim(0, 5)
 
+RT_congruent
+
+#+END_SRC
+
+#+RESULTS:
+[[file:converted_stroop5.png]]
+
+*** RT Values for Incongruent Trials
+#+BEGIN_SRC R :session *363 Stroop* :exports both :results graphics :file "converted_stroop6.png"
+
+RT_incongruent <- ggplot(df, aes(x = Incongruent)) + geom_histogram(alpha = 0.5, fill = "steelblue", 
+color = "white") + labs(title = "Response Time for Incongruent Words", x = "Response Time (seconds)", 
+y = "Frequency") + theme_classic() + theme(plot.title = element_text(hjust = 0.5, size = 15, 
+face = "bold"), panel.background = element_blank(), panel.grid = element_blank(), 
+panel.border = element_rect(colour = "black", 
+fill = NA, size = 0.75)) + xlim(0.25, 1.75) + ylim(0, 5)
+
+RT_incongruent
+
+#+END_SRC
+
+#+RESULTS:
+[[file:converted_stroop6.png]]
+
+*** Response Time Density Plot
 #+BEGIN_SRC R :session *363 Stroop* :exports both :results graphics :file "converted_stroop3.png"
 
-density_plot <- ggplot(cond_rt_df, aes(x = RT, color = Condition, fill = Condition)) + geom_density(alpha = 0.5) + labs(title = "Response Time Density Plot", x = "Response Time (seconds)", y = "Frequency") + theme_classic() + theme(plot.title = element_text(hjust = 0.5, size = 15, face = "bold"), legend.position = "right", legend.background = element_blank(), legend.box.background = element_rect(colour = "black"), panel.background = element_blank(), panel.grid = element_blank(), panel.border = element_rect(colour = "black", fill = NA, size = 0.75)) + xlim(0.25, 1.75) 
+density_plot <- ggplot(cond_rt_df, aes(x = RT, color = Condition, fill = Condition)) + 
+geom_density(alpha = 0.5) + labs(title = "Response Time Density Plot", x = "Response Time (seconds)", 
+y = "Frequency") + theme_classic() + theme(plot.title = element_text(hjust = 0.5, size = 15, 
+face = "bold"), legend.position = "right", legend.background = element_blank(), 
+legend.box.background = element_rect(colour = "black"), panel.background = element_blank(), 
+panel.grid = element_blank(), panel.border = element_rect(colour = "black", 
+fill = NA, size = 0.75)) + xlim(0.25, 1.75) 
 
 density_plot
 
@@ -244,53 +264,16 @@ density_plot
 [[file:converted_stroop3.png]]
 
 
+* Discussion
 
-#+BEGIN_SRC R :session *363 Stroop* :exports both :results graphics :file "converted_stroop4.png"
+@@latex:\hspace{1em}@@ Our study originally hypothesized that there should be a difference in participant reaction time due to the increased cognitive effort one must expend to inhibit irrelevant information (i.e. in this case, incongruent trials) when compared to trials where they presumably would have to expend less effort (i.e. during congruent trials). We believed therefore that incongruent trials should lead to participants taking longer to complete and congruent trials should be relatively quicker due to one not having to bypass the barrier of the required extra processing to make a correct rejection on false targets (i.e. incongruent trials). Spinelli and Lupker found in a 2020 study a significant result indicating faster response times for congruent trials than incongruent trials \cite{SpinelliGiacomo2020I}. Our study finds quite the opposite and we believe this opens up the body of research for continued study and investigation. However, there are some glaringly clear limitations to our study and earlier attempts at these studies as we have seen from Spinelli and the like should not be discarded. Firstly, our study had an extremely small sample size of only 4 participants, all of which had a hand in deciding the study and this could negatively bias our results. By proxy we had a very small set of trials, 400 is acceptable with 100 per person, but given that there were again only 4 people this is a clear limitation. Lastly, our study was not conducted in a controlled lab setting and this could skew our results as a consequence. 
 
-interference_hist <- ggplot(df, aes(x = Interference)) + geom_histogram(binwidth = 0.05, color = "white", fill = "darkturquoise") + labs(title = "Interference Histogram", x = "Increase in Response Time (seconds)", y = "Number of Observers") + theme_classic() + theme(plot.title = element_text(hjust = 0.5, size = 15, face = "bold"), panel.background = element_blank(), panel.grid = element_blank(), panel.border = element_rect(colour = "black", fill = NA, size = 0.75))
-
-interference_hist
-
-#+END_SRC
-
-#+RESULTS:
-[[file:converted_stroop4.png]]
+#+latex: \bibliography{stroopBib.bib}
 
 
 
-#+BEGIN_SRC R :session *363 Stroop* :exports both :results graphics :file "converted_stroop5.png"
-
-RT_congruent <- ggplot(df, aes(x = Congruent)) + geom_histogram(alpha = 0.5, fill = "steelblue", color = "white") + labs(title = "Response Time for Congruent Words", x = "Response Time (seconds)", y = "Frequency") + theme_classic() + theme(plot.title = element_text(hjust = 0.5, size = 15, face = "bold"), panel.background = element_blank(), panel.grid = element_blank(), panel.border = element_rect(colour = "black", fill = NA, size = 0.75)) + xlim(0.25, 1.75) + ylim(0, 5)
-
-RT_congruent
-
-#+END_SRC
-
-#+RESULTS:
-[[file:converted_stroop5.png]]
 
 
 
-#+BEGIN_SRC R :session *363 Stroop* :exports both :results graphics :file "converted_stroop6.png"
-
-RT_incongruent <- ggplot(df, aes(x = Incongruent)) + geom_histogram(alpha = 0.5, fill = "steelblue", color = "white") + labs(title = "Response Time for Incongruent Words", x = "Response Time (seconds)", y = "Frequency") + theme_classic() + theme(plot.title = element_text(hjust = 0.5, size = 15, face = "bold"), panel.background = element_blank(), panel.grid = element_blank(), panel.border = element_rect(colour = "black", fill = NA, size = 0.75)) + xlim(0.25, 1.75) + ylim(0, 5)
-
-RT_incongruent
-
-#+END_SRC
-
-#+RESULTS:
-[[file:converted_stroop6.png]]
 
 
-
-#+BEGIN_SRC R :session *363 Stroop* :exports both :results graphics :file "converted_stroop7.png"
-
-RT_cond <- ggplot(cond_rt_df, aes(x = RT, color = Condition, fill = Condition)) + geom_histogram(color = NA, alpha = 0.5, position = "identity") + geom_density(alpha = 0) + labs(title = "Response Time for Congruent vs. Incongruent Words", x = "Response Time (seconds)", y = "Frequency") + theme_classic() + theme(plot.title = element_text(hjust = 0.5, size = 15, face = "bold"), legend.position = "right", legend.background = element_blank(), legend.box.background = element_rect(colour = "black"), panel.background = element_blank(), panel.grid = element_blank(), panel.border = element_rect(colour = "black", fill = NA, size = 0.75)) + xlim(0.25, 1.75) + ylim(0, 5)
-
-RT_cond
-
-#+END_SRC
-
-#+RESULTS:
-[[file:converted_stroop7.png]]

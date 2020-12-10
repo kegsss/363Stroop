@@ -1,7 +1,9 @@
 \contentsline {section}{\numberline {1}Introduction}{1}{section.1}%
 \contentsline {section}{\numberline {2}Methods}{1}{section.2}%
 \contentsline {section}{\numberline {3}Results}{3}{section.3}%
-\contentsline {section}{\numberline {4}Discussion}{5}{section.4}%
-\contentsline {section}{\numberline {5}References}{6}{section.5}%
-\contentsline {section}{\numberline {6}Testing Plots here\ldots {}..}{6}{section.6}%
-\contentsline {subsection}{\numberline {6.1}All Of the available plots below\ldots {}}{6}{subsection.6.1}%
+\contentsline {subsection}{\numberline {3.1}Plots}{6}{subsection.3.1}%
+\contentsline {subsubsection}{\numberline {3.1.1}Mean Reaction Time: Congruent vs Incongruent Trials}{6}{subsubsection.3.1.1}%
+\contentsline {subsubsection}{\numberline {3.1.2}RT Values for Congruent Trials}{7}{subsubsection.3.1.2}%
+\contentsline {subsubsection}{\numberline {3.1.3}RT Values for Incongruent Trials}{7}{subsubsection.3.1.3}%
+\contentsline {subsubsection}{\numberline {3.1.4}Response Time Density Plot}{8}{subsubsection.3.1.4}%
+\contentsline {section}{\numberline {4}Discussion}{9}{section.4}%
