@@ -141,7 +141,7 @@ summary(lmresults)
 t.test(Time ~ Congruent, mu=0, alt="two.sided", conf=0.95, var.eq=F, paired=F, data = dt)
 #+end_src
 
-@@latex:\vspace{11em}@@ *One-Way ANOVA:* The third test we ran was a One-Way Analysis of Variance and like the other tests our results do not provide sufficient evidence that reaction times differ significantly under different levels of congruency, F(1, 398) = 1.52, MSE = 0.35, p > .05.
+@@latex:\vspace{2em}@@ *One-Way ANOVA:* The third test we ran was a One-Way Analysis of Variance and like the other tests our results do not provide sufficient evidence that reaction times differ significantly under different levels of congruency, F(1, 398) = 1.52, MSE = 0.35, p > .05.
 #+begin_src R :session *analysis* :exports both :results output
 anova(lmresults)
 #+end_src
@@ -203,7 +203,9 @@ p
 #+RESULTS:
 [[file:converted_stroop2.png]]
 
-The mean reaction times for congruent and incongruent trials. It can be seen that incongruent trials have a larger mean reaction time.
+#+BEGIN_CENTER 
+The mean reaction times for congruent and incongruent trials. It can be seen  @@latex:\\@@ that incongruent trials have a larger mean reaction time.
+#+END_CENTER
 
 *** RT Values for Congruent Trials
 #+BEGIN_SRC R :session *363 Stroop* :exports both :results graphics :file "converted_stroop5.png"
@@ -222,7 +224,9 @@ RT_congruent
 #+RESULTS:
 [[file:converted_stroop5.png]]
 
+#+BEGIN_CENTER
 Distribution of response times for congruent trials.
+#+END_CENTER
 
 *** RT Values for Incongruent Trials
 #+BEGIN_SRC R :session *363 Stroop* :exports both :results graphics :file "converted_stroop6.png"
@@ -241,8 +245,9 @@ RT_incongruent
 #+RESULTS:
 [[file:converted_stroop6.png]]
 
+#+BEGIN_CENTER
 Distribution of response times for incongruent trials.
-
+#+END_CENTER
 *** Response Time Density Plot
 #+BEGIN_SRC R :session *363 Stroop* :exports both :results graphics :file "converted_stroop3.png"
 
@@ -261,7 +266,9 @@ density_plot
 #+RESULTS:
 [[file:converted_stroop3.png]]
 
-A comparison of the response time distributions for both congruent and incongruent trials. Our analysis shows that the observed difference is not statistically signficant.
+#+BEGIN_CENTER
+A comparison of the response time distributions for both congruent and incongruent trials.@@latex:\\@@ Our analysis shows that the observed difference is not statistically signficant.
+#+END_CENTER
 
 * Discussion
 
