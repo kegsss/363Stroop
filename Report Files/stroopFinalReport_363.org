@@ -5,7 +5,6 @@
 #+OPTIONS: timestamp:t title:t toc:t todo:t |:t
 
 #+TITLE: PSYCH 363 - Stroop Effect: Congruency and Response Time
-#+DATE: <2020-12-14 Mon>
 #+AUTHOR: Keagan McMahon, Brigitta Munds, @@latex:\\@@ Benjamin Brown, & Christina Rachmadita
 #+EMAIL: kl2mcmah@uwaterloo.ca
 
@@ -97,6 +96,10 @@ for i in range(numberTrials):
 core.wait(1)
 core.quit()
 #+end_src
+
+
+*Analysis.*  Individual data files for each set of 20 trials were combined into a single csv file. Statistical analysis on the dataset was performed using standard statistics functions in R.\\
+
 #+RESULTS:
 * Results
 
@@ -141,17 +144,6 @@ t.test(Time ~ Congruent, mu=0, alt="two.sided", conf=0.95, var.eq=F, paired=F, d
 @@latex:\vspace{11em}@@ *One-Way ANOVA:* The third test we ran was a One-Way Analysis of Variance and like the other tests our results do not provide sufficient evidence that reaction times differ significantly under different levels of congruency, F(1, 398) = 1.52, MSE = 0.35, p > .05.
 #+begin_src R :session *analysis* :exports both :results output
 anova(lmresults)
-#+end_src
-
-@@latex:\vspace{2em}@@ *More Linear Regression:* We decided to further explore the explanatory power between the other variables as well... this really isn't relevant, delete? explanatory power of trial #, response, and colour value? Marked for removal.
-#+begin_src R :session *analysis* :exports both :results output
-lmresults2 <- lm( Time ~ Congruent + Trial + Colour + Response, data = dt)
-summary(lmresults2)
-#+end_src
-
-@@latex:\vspace{2em}@@ *One-Way ANOVA (again? what is this for?):* ^^^ see more linear regression comment, same thing but an anova. Marked for removal, not relevant. 
-#+begin_src R :session *analysis* :exports both :results output
-anova(lmresults2)
 #+end_src
 
 ** Plots
@@ -211,6 +203,8 @@ p
 #+RESULTS:
 [[file:converted_stroop2.png]]
 
+The mean reaction times for congruent and incongruent trials. It can be seen that incongruent trials have a larger mean reaction time.
+
 *** RT Values for Congruent Trials
 #+BEGIN_SRC R :session *363 Stroop* :exports both :results graphics :file "converted_stroop5.png"
 
@@ -228,6 +222,8 @@ RT_congruent
 #+RESULTS:
 [[file:converted_stroop5.png]]
 
+Distribution of response times for congruent trials.
+
 *** RT Values for Incongruent Trials
 #+BEGIN_SRC R :session *363 Stroop* :exports both :results graphics :file "converted_stroop6.png"
 
@@ -244,6 +240,8 @@ RT_incongruent
 
 #+RESULTS:
 [[file:converted_stroop6.png]]
+
+Distribution of response times for incongruent trials.
 
 *** Response Time Density Plot
 #+BEGIN_SRC R :session *363 Stroop* :exports both :results graphics :file "converted_stroop3.png"
@@ -263,6 +261,7 @@ density_plot
 #+RESULTS:
 [[file:converted_stroop3.png]]
 
+A comparison of the response time distributions for both congruent and incongruent trials. Our analysis shows that the observed difference is not statistically signficant.
 
 * Discussion
 
