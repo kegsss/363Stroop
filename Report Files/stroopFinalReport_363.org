@@ -97,7 +97,7 @@ core.wait(1)
 core.quit()
 #+end_src
 
-*Analysis.*  Individual data files for each set of 20 trials were combined into a single CSV file. Statistical analysis on the dataset was performed using standard statistics functions in R. The statistical package R was also used to graph the dataset. Some data processing was done before graphing the data. To describe each participant's performance, the mean reaction time for the congruent and incongruent conditions was recorded. \\
+*Analysis.* Individual data files for each set of 20 trials were combined into a single CSV file. Statistical analysis and plots on the dataset was performed using standard statistic functions in R. \\
 
 #+RESULTS:
 * Results

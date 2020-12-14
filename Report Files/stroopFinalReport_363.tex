@@ -1,4 +1,4 @@
-% Created 2020-12-14 Mon 11:25
+% Created 2020-12-14 Mon 11:42
 % Intended LaTeX compiler: pdflatex
 \documentclass{article}
 \usepackage[utf8]{inputenc}
@@ -34,14 +34,14 @@
 
 
 \section{Introduction}
-\label{sec:org4c11422}
+\label{sec:org192ad10}
 
 \hspace{1em} Previous studies in the Stroop literature have demonstrated that participants might respond differently based on if Stroop items are congruent with their displayed state and some have found evidence of congruency effects \cite{SpinelliGiacomo2020WMLD}. For example, words that are presented in the same colour that the word is describing (i.e. the word "Red" presented in the colour red) would be known as a congruent trial, whereas words presented in a different colour (i.e. "Red, but presented in the colour blue) would be an incongruent trial.\\
 
 Rey-Mermet discusses the idea of attentional-control processes, namely, our ability to ``activate goal-relevant information and to inhibit irrelevant information'' \cite{Mermet2020Faib}. Our study approaches this idea and seeks to understand if reaction time differences arise when comparing congruent to incongruent trials. A participant's goal is to correctly report congruent words while inhibiting the irrelevant information presented during incongruent trials and we hypothesize that one's reaction time should differ as a function of the extended cognitive process one must engage in to correctly make this rejection.
 
 \section{Methods}
-\label{sec:org87f4958}
+\label{sec:org80fd2ba}
 
 \hspace{1em} \textbf{Participants.} We utilized our 4 group members, and each completed 20 trials 5 times yielding 100 total trials per person. This gave us enough data to be confident in our results, although with such a small sample size of participants it is clear that these results will struggle to generalize to the broader population more broadly. \\
 
@@ -108,11 +108,11 @@ core.wait(1)
 core.quit()
 \end{verbatim}
 
-\textbf{Analysis.}  Individual data files for each set of 20 trials were combined into a single CSV file. Statistical analysis on the dataset was performed using standard statistics functions in R. The statistical package R was also used to graph the dataset. Some data processing was done before graphing the data. To describe each participant's performance, the mean reaction time for the congruent and incongruent conditions was recorded. \\
+\textbf{Analysis.} Individual data files for each set of 20 trials were combined into a single CSV file. Statistical analysis and plots on the dataset was performed using standard statistic functions in R. \\
 \section{Results}
-\label{sec:orgc58774f}
+\label{sec:org78a6073}
 \subsection{Statistical Analysis}
-\label{sec:orgc54f318}
+\label{sec:orgc7e4b5d}
 \vspace{1em} Three statistical analyses were done to determine whether there was a significant difference between the conditions, congruent and incongruent condition. These include the linear regression model, specialized t-test, and one-way ANOVA.
 
 \begin{verbatim}
@@ -231,9 +231,9 @@ Residuals 398 93.258 0.23432
 \end{verbatim}
 
 \subsection{Plots}
-\label{sec:org614ca52}
+\label{sec:orgf12f48b}
 \subsubsection{Mean Reaction Time: Congruent vs Incongruent Trials}
-\label{sec:orgb865d41}
+\label{sec:org0976132}
 \begin{verbatim}
 
 p <- ggplot(overall, aes(x = cond, y = rt)) + geom_bar(fill = "darkturquoise", stat = "identity", 
@@ -255,7 +255,7 @@ The mean reaction times for congruent and incongruent trials. It can be seen \\ 
 \end{center}
 
 \subsubsection{RT Values for Congruent Trials}
-\label{sec:orge59fd64}
+\label{sec:orgcaae9bc}
 \begin{verbatim}
 
 RT_congruent <- ggplot(df, aes(x = Congruent)) + geom_histogram(alpha = 0.5, fill = "steelblue", 
@@ -278,7 +278,7 @@ Distribution of response times for congruent trials.
 \end{center}
 
 \subsubsection{RT Values for Incongruent Trials}
-\label{sec:org34e3034}
+\label{sec:org27189dd}
 \begin{verbatim}
 
 RT_incongruent <- ggplot(df, aes(x = Incongruent)) + geom_histogram(alpha = 0.5, fill = "steelblue", 
@@ -300,7 +300,7 @@ RT_incongruent
 Distribution of response times for incongruent trials.
 \end{center}
 \subsubsection{Response Time Density Plot}
-\label{sec:orga26db6b}
+\label{sec:org8b7871e}
 \begin{verbatim}
 
 density_plot <- ggplot(cond_rt_df, aes(x = RT, color = Condition, fill = Condition)) + 
@@ -324,7 +324,7 @@ A comparison of the response time distributions for both congruent and incongrue
 \end{center}
 
 \section{Discussion}
-\label{sec:orgfa94e98}
+\label{sec:orgdbd8153}
 
 \hspace{1em} Our study originally hypothesized that there should be a difference in participant reaction time due to the increased cognitive effort one must expend to inhibit irrelevant information (i.e. in this case, incongruent trials) when compared to trials where they presumably would have to expend less effort (i.e. during congruent trials). We believed therefore that incongruent trials should lead to participants taking longer to complete and congruent trials should be completed quicker. Spinelli and Lupker found in a 2020 study a significant result indicating faster response times for congruent trials than incongruent trials \cite{SpinelliGiacomo2020I}. Interestingly, our study finds quite the opposite. As seen in the statistical results and graphs provided in the previous section, we found that there is no significant difference between the congruent and the incongruent condition. We believe this opens up the body of research for continued study and investigation. However, there are some glaringly clear limitations to our study and earlier attempts at these studies as we have seen from Spinelli and the like should not be discarded. Firstly, our study had an extremely small sample size of only 4 participants, all of which had a hand in designing the study and this could negatively bias our results. By proxy we had a very small set of trials, 400 is acceptable with 100 per person, but given that there were again only 4 people this is a clear limitation. Furthermore, since each participant completed multiple trials this may result in a carry-over effect, thus further skewing the results. Next, the trial probability for the conditions was set to 25\% in the program used in this study, which may bias the results due to not having a truly random distribution of congruent to incongruent trials (i.e. 50/50 odds). Lastly, our study was not conducted in a controlled lab setting and this could skew our results as a consequence. 
 
