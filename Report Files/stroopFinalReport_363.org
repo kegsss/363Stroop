@@ -28,13 +28,13 @@
 
 @@latex:\hspace{1em}@@ Previous studies in the Stroop literature have demonstrated that participants might respond differently based on if Stroop items are congruent with their displayed state and some have found evidence of congruency effects \cite{SpinelliGiacomo2020WMLD}. For example, words that are presented in the same colour that the word is describing (i.e. the word "Red" presented in the colour red) would be known as a congruent trial, whereas words presented in a different colour (i.e. "Red, but presented in the colour blue) would be an incongruent trial.\\
 
-Rey-Mermet discusses the idea of attentional-control processes, namely, our ability to ``activate goal-relevant information and to inhibit irrelevant information'' \cite{Mermet2020Faib}. Our study approaches this idea and seeks to understand if reaction time differences arise when comparing congruent to incongruent trials. A participants goal is to correctly report words that are congruent, while inhibiting the irrelevant information presented during incongruent trials and we hypothesize that ones reaction time should differ as a function of the extended cognitive process one must engage in to correctly make this rejection. 
+Rey-Mermet discusses the idea of attentional-control processes, namely, our ability to ``activate goal-relevant information and to inhibit irrelevant information'' \cite{Mermet2020Faib}. Our study approaches this idea and seeks to understand if reaction time differences arise when comparing congruent to incongruent trials. A participant's goal is to correctly report congruent words while inhibiting the irrelevant information presented during incongruent trials and we hypothesize that one's reaction time should differ as a function of the extended cognitive process one must engage in to correctly make this rejection.
 
 * Methods
 
 @@latex:\hspace{1em}@@ *Participants.* We utilized our 4 group members, and each completed 20 trials 5 times yielding 100 total trials per person. This gave us enough data to be confident in our results, although with such a small sample size of participants it is clear that these results will struggle to generalize to the broader population more broadly. \\
 
-*Materials.* A program was developed for use in our experiement to randomly choose different colour words (i.e. red, blue, green, etc) and an associated colour that the words were written in. The words are presented on a plain solid grey background and participants were instructed to either press "z" or "/" on a keyboard to indicate whether the word and its associated colour were congruent (i.e. the written word matched the colour of the word) or incongruent (i.e. the written word did not match the colour of the word). After each user response a new word would be randomly generated for them to respond to and once the participant completes 20 trials, the program closes itself, the data is exported and procedure ends. Importantly, the colour and word displayed were all randomly selected, the probability of a participant seeing a congruent trial was set at 25%. \\
+*Materials.* A program was developed for use in our experiment to randomly choose different colour words (i.e. red, blue, green, etc) and an associated colour that the words were written in. The words are presented on a plain solid grey background and participants were instructed to either press "z" or "/" on a keyboard to indicate whether the word and its associated colour were congruent (i.e. the written word matched the colour of the word) or incongruent (i.e. the written word did not match the colour of the word). After each user responds a new word is randomly generated for them to respond to and once the participant completes 20 trials, the program closes itself, the data is exported and the procedure ends. Importantly, the colour and word displayed were all randomly selected, the probability of a participant seeing a congruent trial was set at 25%. \\
 
 Please see below for a copy of the Python code used in designing the program: \\
 #+begin_src python :exports code
@@ -97,13 +97,12 @@ core.wait(1)
 core.quit()
 #+end_src
 
-
-*Analysis.*  Individual data files for each set of 20 trials were combined into a single csv file. Statistical analysis on the dataset was performed using standard statistics functions in R. The statistical package R was also used to graph the dataset. Some data processing was done before graphing the data. In order to describe each participant's performance in each of the condition, the mean reaction time for the congruent and incongruent condition was taken. \\
+*Analysis.*  Individual data files for each set of 20 trials were combined into a single CSV file. Statistical analysis on the dataset was performed using standard statistics functions in R. The statistical package R was also used to graph the dataset. Some data processing was done before graphing the data. To describe each participant's performance, the mean reaction time for the congruent and incongruent conditions was recorded. \\
 
 #+RESULTS:
 * Results
 ** Statistical Analysis
-@@latex:\vspace{2em}@@ Three statistical analysis were done to determine whether there was a significant difference between the conditions, congruent and incongruent condition. These include the linear regression model, specialised t-test, and one-way ANOVA.
+@@latex:\vspace{1em}@@ Three statistical analyses were done to determine whether there was a significant difference between the conditions, congruent and incongruent condition. These include the linear regression model, specialized t-test, and one-way ANOVA.
 
 #+begin_src R :session *analysis* :exports both :results output
 
@@ -112,14 +111,14 @@ dt <- read.csv("363Stroop_Data_Dec_4.csv")
 
 #+end_src
 
-*Data structure:* This produces an example excerpt from our CSV file (up to 10 trials), there are 400 total across the entire experiment. As you can see, the data is automaticallly arranged based on if the trial is congruent or not (1 for congruent, 0 for incongruent), the presented colour, the participants response, and their reaction time.
+*Data structure:* This produces an example excerpt from our CSV file (up to 10 trials), there is 400 total across the entire experiment. As you can see, the data is automatically arranged based on if the trial is congruent or not (1 for congruent, 0 for incongruent), the presented colour, the participant's response, and their reaction time.
 #+begin_src R :session *analysis* :exports both :results output
 
 ## An example of how our data is structured
 head(dt, 10)
 #+end_src 
 
-@@latex:\vspace{2em}@@ *Statistical Summary of the Data:* This produces some basic descriptive statistics of our experiment. To note a few, there were 88 trials were participants hit the 'z' key (i.e. reported a congruent trial) and 312 instances where they hit the '/' key (i.e. reported an incongruent trial). The mean response time was 0.8997 seconds with the longest response taking 4.5227 seconds and the quickest response taking 0.2039 seconds. 
+@@latex:\vspace{2em}@@ *Statistical Summary of the Data:* This produces some basic descriptive statistics of our experiment. To note a few, there were 88 trials where participants hit the 'z' key (i.e. reported a congruent trial) and 312 instances where they hit the '/' key (i.e. reported an incongruent trial). The mean response time was 0.8997 seconds with the longest response taking 4.5227 seconds and the quickest response taking 0.2039 seconds.
 #+begin_src R :session *analysis* :exports both :results output
 
 summary(dt)
@@ -132,18 +131,18 @@ nrow(dt)
 #+end_src
 
 
-@@latex:\vspace{2em}@@ *Linear Regression Model:* We completed many different statistical analyses on our data, the first being a linear regression. From the results, we can see that our data does not provide enough evidence that there is a significant difference in reaction time between the conditions, t(398) = -1.23, SE = .06, p > .05. Our results also show that <1% of the total variation in participant response times can be explained by our independent variable, congruency. This means that the model used was not well fitted with for the data.
+@@latex:\vspace{2em}@@ *Linear Regression Model:* We completed many different statistical analyses on our data, the first being a linear regression. From the results, we can see that our data does not provide enough evidence that there is a significant difference in reaction time between the conditions, t(398) = -1.23, SE = .06, p > .05. Our results also show that <1% of the total variation in participant response times can be explained by our independent variable, congruency. This means that the model used was not well fitted for the data.
 #+begin_src R :session *analysis* :exports both :results output
 lmresults <- lm( Time ~ Congruent, data = dt)
 summary(lmresults)
 #+end_src
 
-@@latex:\vspace{2em}@@ *Specialised T-test:* The second test we ran was a Welch Two Sample T-test and as we can see from our results that there is not enough evidence to suggest that reaction times are significantly different when presented congruent trials than when presented incongruent trials and we must retain the null hypothesis, t(241.61) = 1.65, p > .05.
+@@latex:\vspace{2em}@@ *Specialized T-test:* The second test we ran was a Welch Two Sample T-test and as we can see from our results that there is not enough evidence to suggest that reaction times are significantly different when presented congruent trials than when presented incongruent trials and we must retain the null hypothesis, t(241.61) = 1.65, p > .05.
 #+begin_src R :session *analysis* :exports both :results output
 t.test(Time ~ Congruent, mu=0, alt="two.sided", conf=0.95, var.eq=F, paired=F, data = dt)
 #+end_src
 
-@@latex:\vspace{2em}@@ *One-Way ANOVA:* The third test we ran was a One-Way Analysis of Variance and like the other tests our results do not provide sufficient evidence that reaction times differ significantly under different levels of congruency, F(1, 398) = 1.52, MSE = .36, p > .05.
+@@latex:\vspace{2em}@@ *One-Way ANOVA:* The third test we ran was a One-Way Analysis of Variance and similar to our other tests the results do not provide sufficient evidence that reaction times differ significantly under different levels of congruency, F(1, 398) = 1.52, MSE = .36, p > .05.
 #+begin_src R :session *analysis* :exports both :results output
 anova(lmresults)
 #+end_src
@@ -206,7 +205,7 @@ p
 [[file:converted_stroop2.png]]
 
 #+BEGIN_CENTER 
-The mean reaction times for congruent and incongruent trials. It can be seen  @@latex:\\@@ that incongruent trials have a larger mean reaction time.
+The mean reaction times for congruent and incongruent trials. It can be seen @@latex:\\@@ that incongruent trials have a larger mean reaction time.
 #+END_CENTER
 
 *** RT Values for Congruent Trials
@@ -274,7 +273,7 @@ A comparison of the response time distributions for both congruent and incongrue
 
 * Discussion
 
-@@latex:\hspace{1em}@@ Our study originally hypothesized that there should be a difference in participant reaction time due to the increased cognitive effort one must expend to inhibit irrelevant information (i.e. in this case, incongruent trials) when compared to trials where they presumably would have to expend less effort (i.e. during congruent trials). We believed therefore that incongruent trials should lead to participants taking longer to complete and congruent trials should be relatively quicker due to one not having to bypass the barrier of the required extra processing to make a correct rejection on false targets (i.e. incongruent trials). Spinelli and Lupker found in a 2020 study a significant result indicating faster response times for congruent trials than incongruent trials \cite{SpinelliGiacomo2020I}. Interestingly, our study finds quite the opposite. As seen on the statistical results and graphs provided in the previous section, we found that there is no statistically significant difference between the congruent and the incongruent condition. We believe this opens up the body of research for continued study and investigation. However, there are some glaringly clear limitations to our study and earlier attempts at these studies as we have seen from Spinelli and the like should not be discarded. Firstly, our study had an extremely small sample size of only 4 participants, all of which had a hand in deciding the study and this could negatively bias our results. By proxy we had a very small set of trials, 400 is acceptable with 100 per person, but given that there were again only 4 people this is a clear limitation. Aside from that, each participant completed multiple trials. This may result in a carry-over effect, thus further skewing the results. Next, the trial probability for the conditions was set to 25% in the program used in this study, which may bias the results. Lastly, our study was not conducted in a controlled lab setting and this could skew our results as a consequence. 
+@@latex:\hspace{1em}@@ Our study originally hypothesized that there should be a difference in participant reaction time due to the increased cognitive effort one must expend to inhibit irrelevant information (i.e. in this case, incongruent trials) when compared to trials where they presumably would have to expend less effort (i.e. during congruent trials). We believed therefore that incongruent trials should lead to participants taking longer to complete and congruent trials should be completed quicker. Spinelli and Lupker found in a 2020 study a significant result indicating faster response times for congruent trials than incongruent trials \cite{SpinelliGiacomo2020I}. Interestingly, our study finds quite the opposite. As seen in the statistical results and graphs provided in the previous section, we found that there is no significant difference between the congruent and the incongruent condition. We believe this opens up the body of research for continued study and investigation. However, there are some glaringly clear limitations to our study and earlier attempts at these studies as we have seen from Spinelli and the like should not be discarded. Firstly, our study had an extremely small sample size of only 4 participants, all of which had a hand in designing the study and this could negatively bias our results. By proxy we had a very small set of trials, 400 is acceptable with 100 per person, but given that there were again only 4 people this is a clear limitation. Furthermore, since each participant completed multiple trials this may result in a carry-over effect, thus further skewing the results. Next, the trial probability for the conditions was set to 25% in the program used in this study, which may bias the results due to not having a truly random distribution of congruent to incongruent trials (i.e. 50/50 odds). Lastly, our study was not conducted in a controlled lab setting and this could skew our results as a consequence. 
 
 #+latex: \bibliography{stroopBib.bib}
 
