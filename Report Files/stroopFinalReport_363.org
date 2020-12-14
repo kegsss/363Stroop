@@ -98,10 +98,12 @@ core.quit()
 #+end_src
 
 
-*Analysis.*  Individual data files for each set of 20 trials were combined into a single csv file. Statistical analysis on the dataset was performed using standard statistics functions in R.\\
+*Analysis.*  Individual data files for each set of 20 trials were combined into a single csv file. Statistical analysis on the dataset was performed using standard statistics functions in R. The statistical package R was also used to graph the dataset. Some data processing was done before graphing the data. In order to describe each participant's performance in each of the condition, the mean reaction time for the congruent and incongruent condition was taken. \\
 
 #+RESULTS:
 * Results
+** Statistical Analysis
+@@latex:\vspace{2em}@@ Three statistical analysis were done to determine whether there was a significant difference between the conditions, congruent and incongruent condition. These include the linear regression model, specialised t-test, and one-way ANOVA.
 
 #+begin_src R :session *analysis* :exports both :results output
 
@@ -130,18 +132,18 @@ nrow(dt)
 #+end_src
 
 
-@@latex:\vspace{2em}@@ *Linear Regression Model:* We completed many different statistical analyses on our data, the first being a linear regression. Our results show that <1% of the total variation in participant response times can be explained by our independent variable, congruency. 
+@@latex:\vspace{2em}@@ *Linear Regression Model:* We completed many different statistical analyses on our data, the first being a linear regression. From the results, we can see that our data does not provide enough evidence that there is a significant difference in reaction time between the conditions, t(398) = -1.23, SE = .06, p > .05. Our results also show that <1% of the total variation in participant response times can be explained by our independent variable, congruency. This means that the model used was not well fitted with for the data.
 #+begin_src R :session *analysis* :exports both :results output
 lmresults <- lm( Time ~ Congruent, data = dt)
 summary(lmresults)
 #+end_src
 
-@@latex:\vspace{2em}@@ *Specialised T-test:* The second test we ran was a Welch Two Sample T-test and as we can see from our results that there is not enough evidence to suggest that reaction times are significantly different when presented congruent trials than when presented incongruent trials and we must retain the null hypothesis, t(241) = 1.646, p > .05.
+@@latex:\vspace{2em}@@ *Specialised T-test:* The second test we ran was a Welch Two Sample T-test and as we can see from our results that there is not enough evidence to suggest that reaction times are significantly different when presented congruent trials than when presented incongruent trials and we must retain the null hypothesis, t(241.61) = 1.65, p > .05.
 #+begin_src R :session *analysis* :exports both :results output
 t.test(Time ~ Congruent, mu=0, alt="two.sided", conf=0.95, var.eq=F, paired=F, data = dt)
 #+end_src
 
-@@latex:\vspace{2em}@@ *One-Way ANOVA:* The third test we ran was a One-Way Analysis of Variance and like the other tests our results do not provide sufficient evidence that reaction times differ significantly under different levels of congruency, F(1, 398) = 1.52, MSE = 0.35, p > .05.
+@@latex:\vspace{2em}@@ *One-Way ANOVA:* The third test we ran was a One-Way Analysis of Variance and like the other tests our results do not provide sufficient evidence that reaction times differ significantly under different levels of congruency, F(1, 398) = 1.52, MSE = .36, p > .05.
 #+begin_src R :session *analysis* :exports both :results output
 anova(lmresults)
 #+end_src
@@ -272,7 +274,7 @@ A comparison of the response time distributions for both congruent and incongrue
 
 * Discussion
 
-@@latex:\hspace{1em}@@ Our study originally hypothesized that there should be a difference in participant reaction time due to the increased cognitive effort one must expend to inhibit irrelevant information (i.e. in this case, incongruent trials) when compared to trials where they presumably would have to expend less effort (i.e. during congruent trials). We believed therefore that incongruent trials should lead to participants taking longer to complete and congruent trials should be relatively quicker due to one not having to bypass the barrier of the required extra processing to make a correct rejection on false targets (i.e. incongruent trials). Spinelli and Lupker found in a 2020 study a significant result indicating faster response times for congruent trials than incongruent trials \cite{SpinelliGiacomo2020I}. Our study finds quite the opposite and we believe this opens up the body of research for continued study and investigation. However, there are some glaringly clear limitations to our study and earlier attempts at these studies as we have seen from Spinelli and the like should not be discarded. Firstly, our study had an extremely small sample size of only 4 participants, all of which had a hand in deciding the study and this could negatively bias our results. By proxy we had a very small set of trials, 400 is acceptable with 100 per person, but given that there were again only 4 people this is a clear limitation. Lastly, our study was not conducted in a controlled lab setting and this could skew our results as a consequence. 
+@@latex:\hspace{1em}@@ Our study originally hypothesized that there should be a difference in participant reaction time due to the increased cognitive effort one must expend to inhibit irrelevant information (i.e. in this case, incongruent trials) when compared to trials where they presumably would have to expend less effort (i.e. during congruent trials). We believed therefore that incongruent trials should lead to participants taking longer to complete and congruent trials should be relatively quicker due to one not having to bypass the barrier of the required extra processing to make a correct rejection on false targets (i.e. incongruent trials). Spinelli and Lupker found in a 2020 study a significant result indicating faster response times for congruent trials than incongruent trials \cite{SpinelliGiacomo2020I}. Interestingly, our study finds quite the opposite. As seen on the statistical results and graphs provided in the previous section, we found that there is no statistically significant difference between the congruent and the incongruent condition. We believe this opens up the body of research for continued study and investigation. However, there are some glaringly clear limitations to our study and earlier attempts at these studies as we have seen from Spinelli and the like should not be discarded. Firstly, our study had an extremely small sample size of only 4 participants, all of which had a hand in deciding the study and this could negatively bias our results. By proxy we had a very small set of trials, 400 is acceptable with 100 per person, but given that there were again only 4 people this is a clear limitation. Aside from that, each participant completed multiple trials. This may result in a carry-over effect, thus further skewing the results. Next, the trial probability for the conditions was set to 25% in the program used in this study, which may bias the results. Lastly, our study was not conducted in a controlled lab setting and this could skew our results as a consequence. 
 
 #+latex: \bibliography{stroopBib.bib}
 
